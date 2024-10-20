@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --icons: #ffffff;
+    --line: #ece089;
+}
+
+body {
+    font-family: "Josefin Sans", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    padding: 30px;
+    background: transparent;
+}
+  
+  header .home a {
+    position: relative;
+    left: 10px;
+    font-size: 46px;
+    font-weight: bold;
+    background: linear-gradient(to left,
+      #888888, 
+      #ffffff, 
+      #222222, 
+      #444444, 
+      #666666,
+      #000000, 
+      #888888, 
+      #ffffff,
+      #888888,
+      #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
+    background-size: 900%;
+    transition: transform 0.2s ease-in;
+    animation: animated 10s linear infinite,fade 5s;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  header .aboutme a {
+    position: relative;
+    left: 74rem;
+    bottom: 30px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: fade 5.5s;
+  }
+  
+  header .aboutme a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .home a:hover {
+    transform: scale(1.1);
+  }
+  
+  header .aboutme a:hover::after {
+    width: 100%;
+  }
+  
+  .aboutme a:hover {
+    background: transparent;
+    letter-spacing: 1px;
+  }
+  
+  @keyframes animated {
+    0% {
+      background-position-x: 0%;
+    }
+    100% {
+      background-position-x: 100%;
+    }
+  }
+  
+  header .project a {
+    position: relative;
+    left: 79rem;
+    bottom: 49px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: fade 6s;
+  }
+  
+  header .project a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  header .project a:hover::after {
+    width: 100%;
+  }
+  
+  .project a:hover {
+    background: transparent;
+    letter-spacing: 1px;
+  }
+
+  header .cv a {
+    position: relative;
+    left: 85rem;
+    bottom: 68px;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: fade 6.5s;
+  }
+  
+  header .cv a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  header .cv a:hover::after {
+    width: 100%;
+  }
+  
+  .cv a:hover {
+    background: transparent;
+    letter-spacing: 1px;
+  }
+
+/* AWAL */
+.awal #p1 {
+    position: relative;
+    top: 10rem;
+    left: 24rem;
+    animation: fade 1s;
+}
+
+.awal h2 {
+    font-weight: bold;
+    position: relative;
+    top: 130px;
+    left: 382px;
+    font-size: 40px;
+    animation: fade 2s;
+}
+
+.awal h4 {
+    position: relative;
+    top: 100px;
+    left: 24rem;
+    animation: fade1 2s;
+}
+
+.awal #p2 {
+    position: relative;
+    top: 81px;
+    left: 24rem;
+    animation: fade1 2.5s;
+}
+
+@keyframes fade1 {
+    0% {
+        opacity: 0;
+        transform: translate(100px) scale(0);
+    }
+
+    50%, 80% {
+        opacity: 0;
+        transform: translate(0px) scale(0);
+      }
+  
+    100% {
+        opacity: 1;
+        transform: translate(0px) scale(1);
+    }
+  }
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+        transform: translateY(0px) scale(0.9);
+    }
+  
+    30%, 50% {
+      opacity: -0;
+      transform: translateY(10px) scale(1);
+    }
+  
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+  }
+
+/* FOTO GWEH */
+.opening img {
+    width: 300px;
+    height: 300px;
+    border-radius: 60%;
+    object-fit: cover;
+    position: relative;
+    left: 50rem;
+    bottom: 8rem;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+    animation: fade-up 3.5s, glowing 2s infinite alternate;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
+                    0 0 20px rgba(255, 255, 255, 0.3),
+                    0 0 30px rgba(255, 255, 255, 0.2),
+                    0 0 40px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
+                    0 0 30px rgba(255, 255, 255, 0.4),
+                    0 0 40px rgba(255, 255, 255, 0.3),
+                    0 0 50px rgba(255, 255, 255, 0.2);
+    }
+}
+
+@keyframes fade-up {
+    0%, 10% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.7);
+    }
+
+    50%, 70% {
+        opacity: 1;
+        transform: translate(0px) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-900px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+/* SOSMED */
+.social-media {
+    position: relative;
+    top: 6rem;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 35px;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 29px;
+}
+
+.social-icons a {
+    text-decoration: none;
+}
+
+.social-icons img {
+    width: 40px;
+    transition: transform 0.4s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.5);
+}
+
+p {
+    position: relative;
+    top: 5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 80px;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    header .home a {
+        font-size: 6vw;
+    }
+    
+    header .aboutme a,
+    header .project a {
+        font-size: 5vw;
+    }
+
+    .awal h2 {
+        font-size: 8vw;
+    }
+
+    .awal h4 {
+        font-size: 6vw;
+    }
+}
