@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+  --icons: #ffffff;
+  --line: #ece089;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000000; 
+  color: #ddd; 
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-container {
+  display: flex;
+  position: relative;
+  left: 48px;
+  gap: 130px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: #333; /* Warna abu-abu */
+  border-radius: 10px; /* Sudut melengkung */
+  width: 40%; /* Lebar setiap card */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek card */
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: fade 3.9s;
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Efek hover membesar */
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.project-card h2 {
+  font-size: 18px;
+  margin: 10px 0 5px; /* Jarak dari card */
+  color: #fff;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+}
+
+/* Header */
+header {
+  z-index: 1000;
+  width: 100%;
+  display: flex;
+  padding: 30px;
+  background: transparent;
+}
+
+header .home a {
+  position: relative;
+  left: 10px;
+  font-size: 46px;
+  font-weight: bold;
+  background: linear-gradient(to left,
+    #888888, 
+    #ffffff, 
+    #222222, 
+    #444444, 
+    #666666,
+    #000000, 
+    #888888, 
+    #ffffff,
+    #888888,
+    #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  background-size: 900%;
+  transition: transform 0.2s ease-in;
+  animation: animated 10s linear infinite,fade 2s;
+  position: relative;
+  text-decoration: none;
+}
+
+.home a:hover {
+  transform: scale(1.1);
+}
+
+header .aboutme a {
+  position: relative;
+  left: 74rem;
+  bottom: 30px;
+  font-size: 19px;
+  color: whitesmoke;
+  text-decoration: none;
+  transition: 0.5s;
+  animation: fade 2.9s;
+}
+
+header .aboutme a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+header .aboutme a:hover::after {
+  width: 100%;
+}
+
+.aboutme a:hover {
+  background: transparent;
+  letter-spacing: 1px;
+}
+
+@keyframes animated {
+  0% {
+    background-position-x: 0%;
+  }
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes fade1 {
+    0% {
+        opacity: 0;
+        transform: translate(100px) scale(0);
+    }
+
+    50%, 80% {
+        opacity: 0;
+        transform: translate(0px) scale(0);
+      }
+  
+    100% {
+        opacity: 1;
+        transform: translate(0px) scale(1);
+    }
+  }
+
+  header .project a {
+    position: relative;
+    left: 79rem;
+    bottom: 49px;
+    font-size: 19px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: fade 3s;
+  }
+  
+  header .project a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  header .project a:hover::after {
+    width: 100%;
+  }
+  
+  .project a:hover {
+    background: transparent;
+    letter-spacing: 1px;
+  }
+
+  header .cv a {
+    position: relative;
+    left: 85rem;
+    bottom: 68px;
+    font-size: 20px;
+    color: whitesmoke;
+    text-decoration: none;
+    transition: 0.5s;
+    animation: fade 3.2s;
+  }
+  
+  header .cv a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    bottom: -5px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  header .cv a:hover::after {
+    width: 100%;
+  }
+  
+  .cv a:hover {
+    background: transparent;
+    letter-spacing: 1px;
+  }
+  
+/* Me */
+
+.about {
+  padding: 20px;
+  margin: 20px;
+  color: #eee;
+  flex-grow: 1;
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 20px; 
+}
+
+.about h1 {
+  position: relative;
+  left: 1rem;
+  bottom: 110px;
+  font-size: 70px;
+  font-weight: bold;
+  text-decoration: none;
+  animation: fade 4s;
+}
+
+.about h2 {
+  position: relative;
+  bottom: 49px;
+  left: 2px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+  animation: fade 1s;
+}
+
+.about h2::before {
+  content: attr(data-text);
+  position: absolute; 
+  color: #fff;
+  width: 0; 
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  animation: animasi 8s linear infinite; 
+  filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 20px #fff);
+}
+
+@keyframes animasi {
+  0%, 10% {
+    width: 0;
+  }
+
+  30% {
+    width: 0;
+  }
+
+  60%, 90% {
+    width: 145px;
+  }
+  100% {
+    width: 0; 
+  }
+}
+
+.about img {
+  position: relative;
+  bottom: 80px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  animation: fade 2.9s, glowing 2s infinite alternate
+}
+
+@keyframes glowing {
+  0% {
+      box-shadow: 0 0 0px  rgba(255, 255, 255, 0.4),
+                  0 0 10px rgba(255, 255, 255, 0.3),
+                  0 0 20px rgba(255, 255, 255, 0.2),
+                  0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                  0 0 20px rgba(255, 255, 255, 0.4),
+                  0 0 30px rgba(255, 255, 255, 0.3),
+                  0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes fade {
+  0% {
+      opacity: 0;
+      transform: translateY(0px) scale(0.9);
+  }
+
+  30%, 50% {
+    opacity: -0;
+    transform: translateY(10px) scale(1);
+}
+
+  100% {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fade-up {
+  0%, 10% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.7);
+  }
+
+  50%, 70% {
+      opacity: 1;
+      transform: translate(0px) scale(0.8);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+  }
+}
+
+.click {
+  color: white; /* Warna teks */
+  text-decoration: underline; /* Garis bawah */
+  cursor: pointer; /* Pointer saat hover */
+}
+
+
+.description {
+  flex: 1; 
+}
+
+.description #p1 {
+  max-width: 80%;
+  position: relative;
+  left: 20px;
+  bottom: 150px;
+  font-size: 21px;
+  line-height: 1.5;
+  animation: fade 5s;
+}
+
+.description #p2 {
+  max-width: 80%;
+  position: relative;
+  left: 20px;
+  bottom: 150px;
+  font-size: 21px;
+  line-height: 1.5;
+  animation: fade 6s;
+}
+
+.description #p3 {
+  max-width: 80%;
+  position: relative;
+  left: 20px;
+  bottom: 150px;
+  font-size: 21px;
+  line-height: 1.5;
+  animation: fade 7s;
+}
+
+.education-section {
+  width: 80%;
+  margin: 0 auto; /* Memusatkan elemen secara horizontal */
+  padding: 20px;
+  text-align: center; /* Memusatkan teks dalam section */
+}
+
+.education-item {
+  display: flex;
+  flex-direction: column; /* Mengubah arah flex menjadi kolom */
+  align-items: center; /* Memusatkan item dalam kolom */
+  margin-bottom: 20px;
+}
+
+.edu-logo img {
+  margin-bottom: 10px; /* Menambahkan jarak di bawah logo */
+  border-radius: 8px;
+}
+
+.edu-content h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.edu-content p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+
+/* Footer */
+.social-media {
+  padding: 20px;
+  margin: 20px;
+  border-radius: 35px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 29px;
+}
+
+.social-icons a {
+  text-decoration: none;
+}
+
+.social-icons img {
+  width: 40px;
+  transition: transform 0.4s ease;
+}
+
+.social-icons img:hover {
+  background: transparent;
+  transform: scale(1.5);
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  color: #ccc; 
+}
+
+.cv-container {
+  display: flex;
+  justify-content: center; /* Memusatkan konten di dalam container */
+  align-items: center;
+  padding: 20px; /* Memberikan sedikit ruang di sekitar gambar */
+ /* Warna latar belakang untuk kontainer */
+  border-radius: 10px; /* Menambahkan sudut melengkung */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk memberi efek kedalaman */
+  animation: fade 3.9s;
+}
+
+.cv-image {
+  max-width: 60%; /* Membuat gambar responsif */
+  max-height: 100vh; /* Mengatur tinggi maksimum untuk gambar */
+  border-radius: 10px; /* Menambahkan sudut melengkung pada gambar */
+  transition: transform 0.4s ease;
+}
+
+.cv-container img:hover{
+  transform: scale(1.1);
+}
