@@ -463,6 +463,7 @@ footer {
   max-height: 100vh; /* Mengatur tinggi maksimum untuk gambar */
   border-radius: 10px; /* Menambahkan sudut melengkung pada gambar */
   transition: transform 0.4s ease;
+  animation: fade 3.9s;
 }
 
 .cv-container img:hover{
