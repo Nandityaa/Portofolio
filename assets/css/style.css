@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
-    --icons: #ffffff;
-    --line: #ece089;
+  --icons: #ffffff;
+  --line: #ece089;
 }
 
 * {
-    font-family: "Josefin Sans", sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #ddd;
-    overflow-x: hidden;
-    box-sizing: border-box;
-    justify-content: center;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #ddd;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  justify-content: center;
 }
 
 #backToTop {
@@ -39,60 +39,65 @@
   visibility: visible;
 }
 
-body{
+body {
   background-color: #000000;
   min-height: 100vh;
 }
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 10px 20px; 
-    background: #000000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  background: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-items: center;
+  z-index: 100;
 }
 
-.logo{
-    font-size: 45px;
-    font-weight: 900;
-    background: linear-gradient(to left,
-      #888888, 
-      #ffffff, 
-      #222222, 
-      #444444, 
+.menu-icon {
+  display: none;
+}
+
+.logo {
+  font-size: 45px;
+  font-weight: 900;
+  background: linear-gradient(to left,
+      #888888,
+      #ffffff,
+      #222222,
+      #444444,
       #666666,
-      #000000, 
-      #888888, 
+      #000000,
+      #888888,
       #ffffff,
       #888888,
       #ffffff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-size: 900%;
-    transition: transform 0.2s ease-in;
-    animation: animated 10s linear infinite,fade 5s;
-    text-decoration: none;
-    display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-size: 900%;
+  transition: transform 0.2s ease-in;
+  animation: animated 10s linear infinite, fade 5s;
+  text-decoration: none;
+  display: inline-block;
 }
 
-.logo:hover{
-    transform: scale(1.1);
+.logo:hover {
+  transform: scale(1.1);
 }
 
-nav a{
-    font-size: 18px;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: 0.5s;
-    animation: fade 5.5s;
+nav a {
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 35px;
+  transition: 0.5s;
+  animation: fade 5.5s;
 }
 
 nav a::after {
@@ -112,122 +117,98 @@ nav a:hover {
 }
 
 html {
-  scroll-behavior: smooth; /* Membuat animasi scroll menjadi smooth */
+  scroll-behavior: smooth;
+  /* Membuat animasi scroll menjadi smooth */
 }
 
-@keyframes animate {
-    0% {
-      background-position-x: 0%;
-    }
-    100% {
-      background-position-x: 100%;
-    }
+:root {
+  --icons: #ffffff;
+  --line: #ece089;
+  --transition-speed: 0.4s;
+  --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ... existing styles ... */
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
   }
 
-  @keyframes fade-up {
-    0%, 10% {
-        opacity: 0;
-        transform: translateY(10px) scale(0.7);
-    }
-  
-    50%, 70% {
-        opacity: 1;
-        transform: translate(0px) scale(0.8);
-    }
-  
-    100% {
-        opacity: 1;
-        transform: translateY(0px) scale(1);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
   }
-  
-  @keyframes fade-down {
-    0% {
-        opacity: 0;
-        transform: translateY(-1px) scale(0.9);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0px) scale(1);
-    }
-  }
-  
-  @keyframes glowing {
-    0% {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4),
-                    0 0 20px rgba(255, 255, 255, 0.3),
-                    0 0 30px rgba(255, 255, 255, 0.2),
-                    0 0 40px rgba(255, 255, 255, 0.1);
-    }
-    100% {
-        box-shadow: 0 0 20px rgba(255, 255, 255, 0.5),
-                    0 0 30px rgba(255, 255, 255, 0.4),
-                    0 0 40px rgba(255, 255, 255, 0.3),
-                    0 0 50px rgba(255, 255, 255, 0.2);
-    }
-  }
-  
-  @keyframes fade1 {
-    0% {
-        opacity: 0;
-        transform: translate(10px) scale(0);
-    }
-  
-    50%, 80% {
-        opacity: 0;
-        transform: translate(0px) scale(0);
-      }
-  
-    100% {
-        opacity: 1;
-        transform: translate(0px) scale(1);
-    }
-  }
-  
-  @keyframes fade {
-    0% {
-        opacity: 0;
-        transform: translateY(0px) scale(0.9);
-    }
-  
-    30%, 50% {
-      opacity: -0;
-      transform: translateY(10px) scale(1);
-    }
-  
-    100% {
-        opacity: 1;
-        transform: translateY(0px) scale(1);
-    }
-  }
-  
-  @keyframes animated {
-      0% {
-        background-position-x: 0%;
-      }
-      100% {
-        background-position-x: 100%;
-      }
-    }
+}
 
-    @keyframes animasi {
-      0%, 10% {
-        width: 0;
-      }
-    
-      30% {
-        width: 0;
-      }
-    
-      60%, 90% {
-        width: 145px;
-      }
-      100% {
-        width: 0; 
-      }
-    }
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
 
-.opening{
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animated {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 100%;
+  }
+}
+
+@keyframes animasi {
+
+  0%,
+  10% {
+    width: 0;
+  }
+
+  30% {
+    width: 0;
+  }
+
+  60%,
+  90% {
+    width: 145px;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+.opening {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -241,8 +222,8 @@ html {
   overflow: hidden;
   font-size: 21px;
 }
-  
-.opening img{
+
+.opening img {
   width: 300px;
   height: 300px;
   max-width: 100%;
@@ -252,188 +233,40 @@ html {
   left: 24vw;
   top: 26vh;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-  animation: fade-up 3.5s, glowing 2s infinite alternate;
-}
-
-.opening #p1 {
-  position: relative;
-  bottom: 1rem;
-  top: 0.1rem;
-  animation: fade 1s;
-  background-color: transparent;
-}
-
-.opening h2 {
-  animation: fade 2s;
-  position: relative;
-  background-color: transparent;
-  font-size: 30px;
-}
-
-.opening h4 {
-  animation: fade1 2s;
-  position: relative;
-  background-color: transparent;
-}
-
-.opening #p2 {
-  animation: fade1 2.5s;
-  position: relative;
-  background-color: transparent;
-}
-
-
-.about{
-  width: 100%;
-  height: 100%;
-  margin-top: 80px;
-  padding: 0;
-  overflow-y: hidden;
-}
-
-.about h2 {
-  width: 150px;
-  position: relative;
-  top: 5vh;
-  left: 3.4vw;
-  font-size: 30px;
-  font-weight: bold;
-  color: #222;
-  animation: fade 1s;
-  margin-bottom: 20px;
-  background-clip: text;
-  -webkit-background-clip: text;
-}
-
-.about h2::before {
-  content: attr(data-text);
-  position: absolute; 
-  color: #fff; 
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid #fff;
-  animation: animasi 8s linear infinite; 
-  filter: drop-shadow(0 0 0 100px #fff);
-}
-
-.about img{
-  position: relative;
-  left: 3vw;
-  top: 6vh;
-  width: 400px;
-  height: auto;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
-  animation: fade 2.9s, glowing 2s infinite alternate;
-}
-
-.click {
-  color: white; /* Warna teks */
-  text-decoration: underline; /* Garis bawah */
-  cursor: pointer; /* Pointer saat hover */
-}
-
-.about h1 {
-  position: relative;
-  left: 32vw;
-  bottom: 65vh; /* Sesuaikan nilainya agar teks tidak terpotong di bagian atas */
-  font-size: 89px;
-  font-weight: bold;
-  line-height: 1.2; /* Tambahkan line-height */
-  text-decoration: none;
-  animation: fade 4s;
-  background-color: transparent;
-}
-
-
-.about #p1 {
-  max-width: 60%;
-  position: relative;
-  left: 32.4vw;
-  bottom: 63vh;
-  line-height: 1.5;
-  animation: fade 5s;
-  background-color: transparent;
-  font-size: 21px;
-  text-align: justify;
-  animation: fade 5s;
-}
-
-.about #p2 {
-  max-width: 60%;
-  position: relative;
-  left: 32.4vw;
-  bottom: 61.5vh;
-  line-height: 1.5;
-  animation: fade 5s;
-  background-color: transparent;
-  font-size: 21px;
-  text-align: justify;
-  animation: fade 6s;
-}
-
-.about #p3 {
-  max-width: 60%;
-  position: relative;
-  left: 32.4vw;
-  bottom: 60vh;
-  line-height: 1.5;
-  animation: fade 5s;
-  background-color: transparent;
-  font-size: 21px;
-  text-align: justify;
-  animation: fade 7s;
-}
-
-.education-section {
-  width: 80%;
-  margin: 0 auto; /* Memusatkan elemen secara horizontal */
-  position: relative;
-  bottom: 20vh;
-  text-align: center; /* Memusatkan teks dalam section */
-}
-
-.education-item {
-  display: flex;
-  flex-direction: column; /* Mengubah arah flex menjadi kolom */
-  align-items: center; /* Memusatkan item dalam kolom */
-  margin-bottom: 20px; 
-  padding-bottom: 10px;
-}
-
-.edu-logo img {
-  margin-bottom: 10px; /* Menambahkan jarak di bawah logo */
-  border-radius: 8px;
-}
-
-.education-section h2 {
   margin: 0;
-  font-size: 30px;
-  font-weight: bold;
+  /* Remove auto margin */
+  animation: fade-up 1.2s var(--ease-out-back);
 }
 
-.edu-content h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.edu-content p {
-  margin: 5px 0 0;
-  font-size: 14px;
-}
+/* ... existing styles ... */
 
 .scroll-fade-in {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out-back), transform 0.8s var(--ease-out-back);
 }
 
 .scroll-fade-in.show {
   opacity: 1;
   transform: translateY(0);
 }
+
+.stagger-1 {
+  transition-delay: 0.1s;
+}
+
+.stagger-2 {
+  transition-delay: 0.2s;
+}
+
+.stagger-3 {
+  transition-delay: 0.3s;
+}
+
+.stagger-4 {
+  transition-delay: 0.4s;
+}
+
 
 .keahlian {
   text-align: center;
@@ -455,43 +288,75 @@ html {
   width: 100px;
   height: 90px;
   object-fit: contain;
-  transition: transform 0.3s ease; /* Animasi hover */
+  transition: transform 0.4s var(--ease-out-back);
   margin-bottom: 9rem;
 }
 
 .skill img:hover {
-  transform: scale(1.1); /* Efek zoom */
+  transform: scale(1.15) rotate(5deg);
+}
+
+.skill:nth-child(1) img {
+  animation-delay: 0.1s;
+}
+
+.skill:nth-child(2) img {
+  animation-delay: 0.2s;
+}
+
+.skill:nth-child(3) img {
+  animation-delay: 0.3s;
 }
 
 .project-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 100px; /* Menjaga jarak antar card */
-  justify-content: center; /* Memusatkan card di dalam container */
+  gap: 100px;
+  justify-content: center;
   padding: 20px;
 }
 
 .project-container h2 {
   font-size: 2rem;
   color: #fff;
-  margin-bottom: 20px; /* Memberikan jarak antara h2 dengan card */
-  text-align: center; /* Memusatkan teks judul */
-  width: 100%; /* Memastikan h2 lebar penuh */
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
 }
 
 .project-card {
-  background-color: #333; /* Warna abu-abu */
-  border-radius: 10px; /* Sudut melengkung */
-  width: calc(40% - 20px); /* Membuat card setengah lebar container dengan sedikit margin antar card */
-  padding: 15px; /* Mengurangi padding agar card lebih kompak */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan untuk efek card */
+  background-color: #333;
+  border-radius: 10px;
+  width: calc(40% - 20px);
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  transition: transform 0.3s ease;
-  animation: fade 3.9s;
+  transition: transform 0.4s var(--ease-out-back), box-shadow 0.4s ease;
+  animation: fade-up 1s ease-out backwards;
+  /* "backwards" keeps it invisible before animation starts */
 }
 
+/* Add staggered delays via nth-child for up to 4 items */
+.project-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.project-card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+
 .project-card:hover {
-  transform: scale(1.05); /* Efek hover membesar */
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .project-card img {
@@ -502,7 +367,8 @@ html {
 }
 
 .project-card h2 {
-  font-size: 18px; /* Ukuran font lebih kecil untuk judul */
+  font-size: 18px;
+  /* Ukuran font lebih kecil untuk judul */
   margin: 10px 0 5px;
   color: #fff;
 }
@@ -511,15 +377,19 @@ html {
   font-size: 14px;
   color: #fff;
   line-height: 1.5;
-  padding: 0 10px; /* Menambahkan padding untuk teks */
-  margin-bottom: 15px; /* Memberikan jarak bawah antara teks dan gambar logo */
+  padding: 0 10px;
+  /* Menambahkan padding untuk teks */
+  margin-bottom: 15px;
+  /* Memberikan jarak bawah antara teks dan gambar logo */
   text-align: center;
 }
 
 .project-card p img {
   width: 10%;
-  margin-top: 10px; /* Menambahkan jarak atas gambar logo */
-  display: inline-block; /* Menampilkan gambar secara inline */
+  margin-top: 10px;
+  /* Menambahkan jarak atas gambar logo */
+  display: inline-block;
+  /* Menampilkan gambar secara inline */
 }
 
 .contact {
@@ -582,6 +452,13 @@ html {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.contact button:hover {
+  transform: translateY(-3px);
+  background-color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -598,301 +475,891 @@ footer {
 
 .social-icons {
   display: flex;
-  gap: 15px; /* Space between icons */
+  gap: 15px;
+  /* Space between icons */
 }
 
 .social-icons a img {
-  width: 30px; /* Adjust icon size */
+  width: 30px;
+  /* Adjust icon size */
   height: auto;
 }
 
 footer p {
   margin: 0;
   font-size: 14px;
-  color: #333; /* Optional: Text color */
+  color: #333;
+  /* Optional: Text color */
 }
 
-@media (max-width: 475px) {
-  header{
-    padding: 20px 20px;
-  }
-  
-  .logo {
-    font-size: 40px; /* Mengurangi ukuran font logo */
-  }
+.opening {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  line-height: 1.6em;
+  position: relative;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  overflow: hidden;
+  font-size: 21px;
+}
 
-  nav a {
-    font-size: 14px; /* Mengurangi ukuran font untuk tautan navigasi */
-    margin-left: 13px; /* Mengurangi margin antara tautan */
-  }
+.opening img {
+  width: 300px;
+  height: 300px;
+  max-width: 40vw;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  right: 19vw;
+  top: 45%;
+  left: auto;
+  margin-top: -150px;
+  /* Center using margin to avoid transform conflict */
+  transform: none;
+  /* Remove static transform */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  margin-bottom: 0;
+  animation: fade-up 1.2s var(--ease-out-back);
+  /* Restored bounce */
+}
 
-  nav a::after {
-    content: '';
-    position: absolute;
-    background-color: white;
-    transition: width 0.3s ease-in-out;
-  }
-  
-  nav a:hover::after {
-    width: 100%;
-  }
-  
-  nav a:hover {
-    letter-spacing: -0.1px;
-    font-size: 102%;
-    font-weight: bold;
-    background: transparent;
-    background: linear-gradient(to left,
-      #888888,
-      #ffffff,
-      #ffffff,
-      #ffffff,
-      #888888,
-      #ffffff,
-      #888888,
-      #ffffff,
-      #888888,
-      #ffffff,
-      #888888,
-      #ffffff,
-      #888888,
-      #ffffff,
-      #ffffff,
-      #888888,
-      #888888,
-      #ffffff,
-      #ffffff);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-size: 900%;
-    transition: transform 0.2s ease-in;
-    animation: animated 10s linear infinite,fade 5s;
-    text-decoration: none;
-  }
+/* Desktop Spacing Adjustments - Tightened */
+.opening #p1 {
+  position: absolute;
+  left: 19vw;
+  top: 38%;
+  background-color: transparent;
+  animation: fade-down 1s var(--ease-out-back) 0.2s backwards;
+}
 
-  .opening {
-    left: 0.5vw; /* Mengubah posisi untuk tampilan mobile */
-  }
+.opening h2 {
+  position: absolute;
+  left: 18.9vw;
+  top: 41.5%;
+  /* Tighter gap */
+  background-color: transparent;
+  font-size: 40px;
+  font-weight: bold;
+  border: none;
+  overflow: visible;
+  animation: fade-down 1s var(--ease-out-back) 0.4s backwards;
+}
 
-  .opening img {
-    width: 200px; /* Mengubah ukuran gambar agar lebih responsif */
-    height: 200px; /* Mengatur tinggi otomatis untuk menjaga proporsi */
-    left: 25.5vw;
-    top: 29vh;
-  }
+.opening h4 {
+  position: absolute;
+  left: 19vw;
+  top: 45.5%;
+  /* Tighter gap */
+  background-color: transparent;
+  font-size: 24px;
+  animation: fade-down 1s var(--ease-out-back) 0.6s backwards;
+}
 
-  .opening h2 {  
-    top: 29.5vh;
-    left: 0.3rem;
-    font-size: 31px;
-    width: 100%; /* Membuat judul lebih lebar di perangkat mobile */
-    padding-top: 1rem ;
-    padding-bottom: 1px;
-    text-align: center; /* Menyelaraskan teks ke tengah */
-  }
+.opening #p2 {
+  position: absolute;
+  left: 19vw;
+  top: 49%;
+  /* Tighter gap */
+  background-color: transparent;
+  animation: fade-down 1s var(--ease-out-back) 0.8s backwards;
+}
 
-  .opening h4 {
-    top: 27vh;
-    left: 0.3rem;
-    font-size: 24px;
-    width: 100%; /* Membuat judul lebih lebar di perangkat mobile */
-    padding-top: 1rem ;
-    padding-bottom: 1px;
-    text-align: center; /* Menyelaraskan teks ke tengah */
-  }
+.social-shortcuts {
+  position: absolute;
+  left: 19vw;
+  top: 53%;
+  display: flex;
+  gap: 20px;
+  animation: fade-down 1s var(--ease-out-back) 1s backwards;
+}
 
-  .opening #p1 {
-    top: 32vh;
-    left: 0.3rem;
-    width: 100%; /* Membuat judul lebih lebar di perangkat mobile */
-    text-align: center; /* Menyelaraskan teks ke tengah */
-    font-size: 16px;
-  }
+.social-shortcuts a {
+  color: #fff;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
 
-  .opening #p2 {
-    top: 26.3vh;
-    left: 0.3rem;
-    font-size: 15px;
-    width: 100%; /* Membuat judul lebih lebar di perangkat mobile */
-    text-align: center; /* Menyelaraskan teks ke tengah */
-  }
+.social-shortcuts a:hover {
+  transform: translateY(-3px);
+  color: #ece089;
+}
 
-  .about{
-    height: 150vh;
-    width: 140%;
-  }
+/* Global Grayscale Image Style */
+/* Exclude skills and footer images */
+img:not(.opening img):not(.skill img):not(.language-logo):not(footer img) {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
 
-  .about img {
-    position: relative;
-    left: 9vw;
-    margin-top: 2px;
-    max-width: 58.5%; /* Membuat gambar responsif */
-    height: auto; /* Menjaga rasio aspek gambar */
-    align-items: center;
+img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover {
+  filter: grayscale(0%);
+}
+
+.about h2 {
+  width: 150px;
+  position: relative;
+  top: 5vh;
+  left: 3.4vw;
+  font-size: 30px;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 20px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: fade 1s ease-out;
+}
+
+.about h2::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  animation: animasi 8s linear infinite;
+  filter: drop-shadow(0 0 0 100px #fff);
+}
+
+.about img {
+  position: relative;
+  left: 3vw;
+  top: 6vh;
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  animation: fade-up 1.5s var(--ease-out-back);
+}
+
+.click {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .about h1 {
   position: relative;
-  font-size: 30px;
-  padding: 30px;
-  margin-bottom: 30px;
-  top: 6vh;
-  left: 0.7vw;
+  left: 32vw;
+  bottom: 65vh;
+  font-size: 89px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-decoration: none;
+  background-color: transparent;
+  animation: fade 2s ease-out;
 }
 
-.about h2 {
-  bottom: 70px;
+.about #p1,
+.about #p2,
+.about #p3 {
+  max-width: 60%;
+  position: relative;
+  left: 32.4vw;
+  background-color: transparent;
+  font-size: 21px;
+  text-align: justify;
+  animation: fade 2.5s ease-out;
 }
 
 .about #p1 {
-  text-align: justify;
-  position: relative;
-  top: 0.1vh;
-  font-size: 13px;
-  left: 9vw;
+  bottom: 63vh;
 }
 
 .about #p2 {
-  text-align: justify;
-  position: relative;
-  top: 2.5vh;
-  font-size: 13px;
-  left: 9vw;
+  bottom: 61.5vh;
 }
 
 .about #p3 {
-  text-align: justify;
-  position: relative;
-  top: 4.5vh;
-  font-size: 13px;
-  left: 9vw;
+  bottom: 60vh;
 }
 
-.education-section {
-  position: relative;
-  width: 95%;
-  margin: 0 auto; /* Memusatkan elemen secara horizontal */
-  text-align: center; /* Memusatkan teks dalam section */
-  margin-bottom: 8rem;
+.education-section,
+.keahlian {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  position: relative;
-  top: 2vh;
 }
 
+/* Consistent Section Headers */
+.education-section h2,
+.keahlian h2 {
+  font-size: 36px;
+  font-weight: bold;
+  color: white;
+  /* Make header text visible white */
+  margin-bottom: 60px;
+  /* Increased from 40px */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  /* Add underline effect */
+  padding-bottom: 20px;
+  /* Increased from 10px */
+}
+
+.education-section h2::after,
+.keahlian h2::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  /* Increased width */
+  height: 5px;
+  /* Increased height */
+  background: #ece089;
+  border-radius: 2px;
+}
+
+
+/* Stylish Education Card */
 .education-item {
-    width: 100%; /* Mengubah item pendidikan menjadi lebar penuh */
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  /* Increased gap */
+  background: rgba(255, 255, 255, 0.05);
+  /* Slightly brighter */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  /* Increased padding */
+  border-radius: 20px;
+  width: 100%;
+  max-width: 1100px;
+  /* Further maximized Width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 80px;
+  /* Significantly increased space below */
+}
+
+.education-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .edu-logo img {
-    width: 50px; /* Mengurangi ukuran logo pendidikan */
-    margin-bottom: 10px;
-    margin-top: 16px;
-}
-
-.edu-content p{
-  margin: 15px 0 0;
-  font-size: 14px;
+  border-radius: 15px;
+  /* Softer corners */
+  width: 120px;
+  /* Even Larger logo */
 }
 
 .edu-content h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.project-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  height: 100vh;
-  position: relative;
-  height: 100%;
-  gap: 50px;
-  margin-bottom: 10vh;
-}
-
-.project-card {
-  background-color: #333;
-  border-radius: 10px;
-  width: 25%; /* Sets two cards per row on larger screens */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
+  margin: 0 0 15px 0;
+  /* More space */
+  font-size: 32px;
+  /* Larger title */
   color: #fff;
-  width: 80%;
-  position: relative;
-  bottom: 5vh;
 }
 
-.project-card:hover {
-  transform: scale(1.05);
+.edu-role {
+  font-size: 22px;
+  /* Larger role text */
+  color: #ece089;
+  margin: 0 0 12px 0;
+  font-weight: 500;
 }
 
-.project-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-.project-card h2 {
+.edu-date {
   font-size: 18px;
-  margin: 10px 0 5px;
+  color: #aaa;
+  margin: 0 0 20px 0;
+  font-style: italic;
 }
 
-.project-card p {
-  font-size: 12px;
-  line-height: 1.5;
+.edu-desc {
+  font-size: 18px;
+  color: #ddd;
+  line-height: 1.8;
+  /* More breathing room for text */
 }
 
-.project-container h3{
-  position: relative;
-  top: 10rem;
-}
-
-.social-icons img {
-  width: 40px; /* Mengurangi ukuran icon sosial media */
-  margin-bottom: 10px;
-}
-
-#contactFormContainer {
-  width: 90%; /* Menyesuaikan lebar agar sesuai dengan layar kecil */
-}
-
-#contactToggle {
-  width: 30%; /* Sesuaikan tombol agar lebih ramping */
-  padding: 10px;
-  font-size: 16px; /* Memperkecil ukuran teks */
-}
-
-.contact h1 {
-  font-size: 24px; /* Mengatur ukuran teks h1 agar lebih kecil */
-}
-
-.contact p {
-  font-size: 14px; /* Mengatur ukuran teks paragraf */
-}
-
-.contact form {
-  padding: 15px; /* Mengurangi padding formulir agar lebih cocok untuk layar kecil */
-}
-
-.contact input,
-.contact textarea {
-  padding: 8px; /* Mengurangi padding pada input dan textarea */
-}
-
-.contact button[type="submit"] {
-  padding: 8px; /* Menyesuaikan tombol Kirim */
-  font-size: 16px; /* Memperkecil ukuran teks tombol */
-}
-
-footer {
+/* Skills Section Refinement */
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  /* Increased gap between cards */
+  flex-wrap: wrap;
   width: 100%;
-  position: relative;
-  align-items: center;
-  animation: fade 5.5s;
+  margin-bottom: 80px;
+  /* Add space below skills */
 }
+
+.skill {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 20px;
+  /* Softer corners */
+  padding: 30px;
+  /* More padding */
+  text-align: center;
+  width: 180px;
+  /* Larger card */
+  height: 220px;
+  /* Larger card */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  /* For glow effect */
+  position: relative;
+}
+
+.skill img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+  /* Ensure image is colored by default per exclusion rule */
+}
+
+.skill p {
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  opacity: 0.8;
+  margin: 0;
+  transition: opacity 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ece089;
+  box-shadow: 0 0 20px rgba(236, 224, 137, 0.2);
+  /* Soft Gold Glow */
+}
+
+.skill:hover img {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.skill:hover p {
+  opacity: 1;
+  color: #ece089;
+}
+
+@media (max-width: 475px) {
+  header {
+    padding: 20px 20px;
+  }
+
+  .logo {
+    font-size: 40px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .menu-icon svg {
+    width: 35px;
+    height: 35px;
+    fill: white;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Blur effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+    /* Smoother transition */
+    z-index: 1000;
+    border-top: none;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    /* Shadow for depth */
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    display: block;
+    margin: 25px 0;
+    font-size: 24px;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(50px);
+    /* Slide in effect for links */
+    transition: 0.4s ease-in-out;
+  }
+
+  nav.active a {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+    /* Staggered animation */
+  }
+
+  nav a:hover {
+    color: #ece089;
+    /* Highlight color */
+    transform: scale(1.1);
+    color: #fff;
+  }
+
+  /* Unified Stacked Layout for Tablets & Mobile */
+  .opening {
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    /* Slight padding for tablets */
+  }
+
+  .opening img {
+    width: 280px;
+    /* Tablet size */
+    height: 280px;
+    max-width: 80vw;
+    position: static;
+    margin: 0 0 20px 0;
+    transform: none;
+    left: auto;
+    top: auto;
+    object-fit: cover;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Deeper, more elegant shadow */
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border */
+  }
+
+  .opening h2,
+  .opening h4,
+  .opening #p1,
+  .opening #p2 {
+    position: static;
+    margin: 5px 0;
+    left: auto;
+    top: auto;
+    width: auto;
+    padding: 0;
+    text-align: center;
+  }
+
+  .opening h2 {
+    font-size: 42px;
+    /* Larger for impact */
+    margin: 15px 0 5px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .opening h4 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    /* Elegant uppercase */
+    letter-spacing: 3px;
+    /* Premium letter spacing */
+    font-weight: 300;
+    color: #ece089;
+    /* Gold accent color */
+    opacity: 0.9;
+  }
+
+  .opening #p1 {
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+  }
+
+  .opening #p2 {
+    font-size: 16px;
+    opacity: 0.8;
+    margin-top: 5px;
+  }
+
+  .social-shortcuts {
+    position: static;
+    margin-top: 20px;
+    justify-content: center;
+    animation: none;
+    opacity: 1;
+  }
+
+  .project-card p {
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.5;
+    padding: 0 10px;
+    /* Menambahkan padding untuk teks */
+    margin-bottom: 15px;
+    /* Memberikan jarak bawah antara teks dan gambar logo */
+    text-align: center;
+  }
+
+  .project-card p img {
+    width: 10%;
+    margin-top: 10px;
+    /* Menambahkan jarak atas gambar logo */
+    display: inline-block;
+    /* Menampilkan gambar secara inline */
+  }
+
+  .contact {
+    margin-top: 3rem;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  #contactToggle {
+    background-color: #222222;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: opacity 0.5s ease;
+  }
+
+  #contactFormContainer {
+    width: 30%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+  }
+
+  .contact h1 {
+    margin-bottom: 10px;
+  }
+
+  .contact p {
+    margin-bottom: 20px;
+  }
+
+  .contact form {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact input,
+  .contact textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #000000;
+  }
+
+  .contact button {
+    background-color: #222222;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .social-media {
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    /* Space between icons */
+  }
+
+  .social-icons a img {
+    width: 30px;
+    /* Adjust icon size */
+    height: auto;
+  }
+
+  footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    /* Optional: Text color */
+  }
+
+
+
+  @media (max-width: 475px) {
+    header {
+      padding: 20px 20px;
+    }
+
+    .logo {
+      font-size: 40px;
+    }
+
+    .about {
+      height: 150vh;
+      width: 140%;
+    }
+
+    .about img {
+      position: relative;
+      left: 9vw;
+      margin-top: 2px;
+      max-width: 58.5%;
+      /* Membuat gambar responsif */
+      height: auto;
+      /* Menjaga rasio aspek gambar */
+      align-items: center;
+    }
+
+    .about h1 {
+      position: relative;
+      font-size: 30px;
+      padding: 30px;
+      margin-bottom: 30px;
+      top: 6vh;
+      left: 0.7vw;
+    }
+
+    .about h2 {
+      bottom: 70px;
+    }
+
+    .about #p1 {
+      text-align: justify;
+      position: relative;
+      top: 0.1vh;
+      font-size: 13px;
+      left: 9vw;
+    }
+
+    .about #p2 {
+      text-align: justify;
+      position: relative;
+      top: 2.5vh;
+      font-size: 13px;
+      left: 9vw;
+    }
+
+    .about #p3 {
+      text-align: justify;
+      position: relative;
+      top: 4.5vh;
+      font-size: 13px;
+      left: 9vw;
+    }
+
+    .education-section {
+      position: relative;
+      width: 95%;
+      margin: 0 auto;
+      /* Memusatkan elemen secara horizontal */
+      text-align: center;
+      /* Memusatkan teks dalam section */
+      margin-bottom: 8rem;
+      align-items: center;
+      position: relative;
+      top: 2vh;
+    }
+
+    .education-item {
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      gap: 15px;
+      padding: 20px;
+      /* Adjust padding for mobile */
+    }
+
+    .edu-logo img {
+      width: 50px;
+      /* Mengurangi ukuran logo pendidikan */
+      margin-bottom: 10px;
+      margin-top: 16px;
+    }
+
+    .edu-content p {
+      margin: 15px 0 0;
+      font-size: 14px;
+    }
+
+    .edu-content h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .project-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
+      height: 100%;
+      gap: 50px;
+      margin-bottom: 10vh;
+    }
+
+    .project-card {
+      background-color: #333;
+      border-radius: 10px;
+      width: 25%;
+      /* Sets two cards per row on larger screens */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+      color: #fff;
+      width: 80%;
+      position: relative;
+      bottom: 5vh;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+
+    .opening img {
+      width: 240px;
+      /* Slightly smaller for balance */
+      height: 240px;
+      margin-bottom: 15px;
+    }
+
+    .opening h2 {
+      font-size: 32px;
+      /* proportional to tablet */
+      margin: 10px 0 5px;
+    }
+
+    .opening h4 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .opening #p1,
+    .opening #p2 {
+      font-size: 14px;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h2 {
+      font-size: 18px;
+      margin: 10px 0 5px;
+    }
+
+    .project-card p {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .project-container h3 {
+      position: relative;
+      top: 10rem;
+    }
+
+    .social-icons img {
+      width: 40px;
+      /* Mengurangi ukuran icon sosial media */
+      margin-bottom: 10px;
+    }
+
+    #contactFormContainer {
+      width: 90%;
+      /* Menyesuaikan lebar agar sesuai dengan layar kecil */
+    }
+
+    #contactToggle {
+      width: 30%;
+      /* Sesuaikan tombol agar lebih ramping */
+      padding: 10px;
+      font-size: 16px;
+      /* Memperkecil ukuran teks */
+    }
+
+    .contact h1 {
+      font-size: 24px;
+      /* Mengatur ukuran teks h1 agar lebih kecil */
+    }
+
+    .contact p {
+      font-size: 14px;
+      /* Mengatur ukuran teks paragraf */
+    }
+
+    .contact form {
+      padding: 15px;
+      /* Mengurangi padding formulir agar lebih cocok untuk layar kecil */
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 8px;
+      /* Mengurangi padding pada input dan textarea */
+    }
+
+    .contact button[type="submit"] {
+      padding: 8px;
+      /* Menyesuaikan tombol Kirim */
+      font-size: 16px;
+      /* Memperkecil ukuran teks tombol */
+    }
+
+    footer {
+      width: 100%;
+      position: relative;
+      align-items: center;
+      animation: fade 5.5s;
+    }
+  }
 }
