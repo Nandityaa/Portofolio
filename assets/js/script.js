@@ -52,10 +52,20 @@ function scrollToTop() {
 // Mobile Menu Toggle
 const menuIcon = document.getElementById('menu-icon');
 const navMenu = document.getElementById('nav-menu');
+const menuOpenIcon = document.getElementById('menu-open-icon');
+const menuCloseIcon = document.getElementById('menu-close-icon');
+
+function toggleMenuIcons(isActive) {
+  if (menuOpenIcon && menuCloseIcon) {
+    menuOpenIcon.style.display = isActive ? 'none' : 'block';
+    menuCloseIcon.style.display = isActive ? 'block' : 'none';
+  }
+}
 
 if (menuIcon && navMenu) {
   menuIcon.addEventListener('click', (e) => {
     navMenu.classList.toggle('active');
+    toggleMenuIcons(navMenu.classList.contains('active'));
     e.stopPropagation(); // Prevent click from bubbling to document
   });
 
@@ -63,6 +73,7 @@ if (menuIcon && navMenu) {
   document.querySelectorAll('nav a').forEach(link => {
     link.addEventListener('click', () => {
       navMenu.classList.remove('active');
+      toggleMenuIcons(false);
     });
   });
 
@@ -70,6 +81,7 @@ if (menuIcon && navMenu) {
   document.addEventListener('click', (e) => {
     if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !menuIcon.contains(e.target)) {
       navMenu.classList.remove('active');
+      toggleMenuIcons(false);
     }
   });
 }

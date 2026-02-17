@@ -2,17 +2,23 @@
 
 :root {
   --icons: #ffffff;
-  --line: #ece089;
+  --line: #ffffff;
+  --transition-speed: 0.4s;
+  --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
   font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
-  color: #ddd;
-  overflow-x: hidden;
+  color: #ccc;
   box-sizing: border-box;
-  justify-content: center;
+}
+
+html,
+body {
+  overflow-x: hidden;
 }
 
 #backToTop {
@@ -21,7 +27,7 @@
   right: 20px;
   width: 50px;
   height: 50px;
-  background-color: #333;
+  background-color: #222;
   color: white;
   font-size: 24px;
   text-align: center;
@@ -30,8 +36,15 @@
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#backToTop:hover {
+  transform: translateY(-3px);
+  background-color: #333;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 #backToTop.show {
@@ -44,24 +57,29 @@ body {
   min-height: 100vh;
 }
 
+/* ==================== HEADER & NAV ==================== */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: 10px 20px;
-  background: #000000;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-items: center;
   z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background 0.3s ease;
+  overflow: visible;
 }
 
 .menu-icon {
   display: none;
 }
 
+/* Logo N — NOT CHANGED per user request */
 .logo {
   font-size: 45px;
   font-weight: 900;
@@ -80,7 +98,7 @@ header {
   -webkit-background-clip: text;
   color: transparent;
   background-size: 900%;
-  transition: transform 0.2s ease-in;
+  transition: transform 0.3s ease;
   animation: animated 10s linear infinite, fade 5s;
   text-decoration: none;
   display: inline-block;
@@ -90,21 +108,37 @@ header {
   transform: scale(1.1);
 }
 
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: visible;
+}
+
 nav a {
-  font-size: 18px;
-  color: #fff;
+  font-size: 14px;
+  color: #999;
   text-decoration: none;
-  font-weight: 500;
-  margin-left: 35px;
-  transition: 0.5s;
+  font-weight: 400;
+  margin-left: 30px;
+  transition: color 0.3s ease, letter-spacing 0.3s ease;
   animation: fade 5.5s;
+  position: relative;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  overflow: visible;
+  white-space: nowrap;
 }
 
 nav a::after {
   content: '';
   position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
   background-color: white;
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease;
 }
 
 nav a:hover::after {
@@ -112,25 +146,15 @@ nav a:hover::after {
 }
 
 nav a:hover {
-  background: transparent;
-  letter-spacing: 1px;
+  color: #fff;
+  letter-spacing: 2px;
 }
 
 html {
   scroll-behavior: smooth;
-  /* Membuat animasi scroll menjadi smooth */
 }
 
-:root {
-  --icons: #ffffff;
-  --line: #ece089;
-  --transition-speed: 0.4s;
-  --ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ... existing styles ... */
-
+/* ==================== KEYFRAMES ==================== */
 @keyframes fade-up {
   0% {
     opacity: 0;
@@ -208,38 +232,116 @@ html {
   }
 }
 
+@keyframes subtle-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ==================== HERO SECTION ==================== */
 .opening {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100vh;
-  z-index: 1;
   line-height: 1.6em;
   position: relative;
-  left: 28vw;
+  left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 0;
-  overflow: hidden;
+  overflow: visible;
   font-size: 21px;
 }
 
 .opening img {
   width: 300px;
   height: 300px;
-  max-width: 100%;
-  border-radius: 60%;
+  max-width: 35vw;
+  border-radius: 50%;
   object-fit: cover;
-  position: relative;
-  left: 24vw;
-  top: 26vh;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-  margin: 0;
-  /* Remove auto margin */
+  position: absolute;
+  right: 10vw;
+  top: 50%;
+  left: auto;
+  transform: translateY(-50%);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08);
+  margin-bottom: 0;
   animation: fade-up 1.2s var(--ease-out-back);
+  border: 2px solid rgba(255, 255, 255, 0.06);
 }
 
-/* ... existing styles ... */
+/* Desktop Spacing Adjustments */
+.opening #p1 {
+  position: absolute;
+  left: 19vw;
+  top: 38%;
+  background-color: transparent;
+  color: #888;
+  animation: fade-down 1s var(--ease-out-back) 0.2s backwards;
+}
 
+.opening h2 {
+  position: absolute;
+  left: 18.9vw;
+  top: 41.5%;
+  background-color: transparent;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  overflow: visible;
+  animation: fade-down 1s var(--ease-out-back) 0.4s backwards;
+}
+
+.opening h4 {
+  position: absolute;
+  left: 19vw;
+  top: 45.5%;
+  background-color: transparent;
+  font-size: 20px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 300;
+  animation: fade-down 1s var(--ease-out-back) 0.6s backwards;
+}
+
+.opening #p2 {
+  position: absolute;
+  left: 19vw;
+  top: 49%;
+  background-color: transparent;
+  color: #999;
+  animation: fade-down 1s var(--ease-out-back) 0.8s backwards;
+}
+
+/* ==================== SOCIAL SHORTCUTS ==================== */
+.social-shortcuts {
+  position: absolute;
+  left: 19vw;
+  top: 53%;
+  display: flex;
+  gap: 20px;
+  animation: fade-down 1s var(--ease-out-back) 1s backwards;
+}
+
+.social-shortcuts a {
+  color: #666;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-shortcuts a:hover {
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+/* ==================== SCROLL ANIMATIONS ==================== */
 .scroll-fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -267,335 +369,23 @@ html {
   transition-delay: 0.4s;
 }
 
-
-.keahlian {
-  text-align: center;
-}
-
-.keahlian h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.skills {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.skill img {
-  width: 100px;
-  height: 90px;
-  object-fit: contain;
-  transition: transform 0.4s var(--ease-out-back);
-  margin-bottom: 9rem;
-}
-
-.skill img:hover {
-  transform: scale(1.15) rotate(5deg);
-}
-
-.skill:nth-child(1) img {
-  animation-delay: 0.1s;
-}
-
-.skill:nth-child(2) img {
-  animation-delay: 0.2s;
-}
-
-.skill:nth-child(3) img {
-  animation-delay: 0.3s;
-}
-
-.project-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 100px;
-  justify-content: center;
-  padding: 20px;
-}
-
-.project-container h2 {
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 20px;
-  text-align: center;
-  width: 100%;
-}
-
-.project-card {
-  background-color: #333;
-  border-radius: 10px;
-  width: calc(40% - 20px);
-  padding: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.4s var(--ease-out-back), box-shadow 0.4s ease;
-  animation: fade-up 1s ease-out backwards;
-  /* "backwards" keeps it invisible before animation starts */
-}
-
-/* Add staggered delays via nth-child for up to 4 items */
-.project-card:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.project-card:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.project-card:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.project-card:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-
-.project-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.project-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-
-.project-card h2 {
-  font-size: 18px;
-  /* Ukuran font lebih kecil untuk judul */
-  margin: 10px 0 5px;
-  color: #fff;
-}
-
-.project-card p {
-  font-size: 14px;
-  color: #fff;
-  line-height: 1.5;
-  padding: 0 10px;
-  /* Menambahkan padding untuk teks */
-  margin-bottom: 15px;
-  /* Memberikan jarak bawah antara teks dan gambar logo */
-  text-align: center;
-}
-
-.project-card p img {
-  width: 10%;
-  margin-top: 10px;
-  /* Menambahkan jarak atas gambar logo */
-  display: inline-block;
-  /* Menampilkan gambar secara inline */
-}
-
-.contact {
-  margin-top: 3rem;
-  width: 100%;
-  height: 60vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-#contactToggle {
-  background-color: #222222;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 20px;
-  transition: opacity 0.5s ease;
-}
-
-#contactFormContainer {
-  width: 30%;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.6s ease, opacity 0.6s ease;
-  opacity: 0;
-}
-
-.contact h1 {
-  margin-bottom: 10px;
-}
-
-.contact p {
-  margin-bottom: 20px;
-}
-
-.contact form {
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.contact input,
-.contact textarea {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
-  background-color: #000000;
-}
-
-.contact button {
-  background-color: #222222;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.contact button:hover {
-  transform: translateY(-3px);
-  background-color: #333;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-footer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
-}
-
-.social-media {
-  margin-bottom: 10px;
-}
-
-.social-icons {
-  display: flex;
-  gap: 15px;
-  /* Space between icons */
-}
-
-.social-icons a img {
-  width: 30px;
-  /* Adjust icon size */
-  height: auto;
-}
-
-footer p {
-  margin: 0;
-  font-size: 14px;
-  color: #333;
-  /* Optional: Text color */
-}
-
-.opening {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-  line-height: 1.6em;
-  position: relative;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-  overflow: hidden;
-  font-size: 21px;
-}
-
-.opening img {
-  width: 300px;
-  height: 300px;
-  max-width: 40vw;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  right: 19vw;
-  top: 45%;
-  left: auto;
-  margin-top: -150px;
-  /* Center using margin to avoid transform conflict */
-  transform: none;
-  /* Remove static transform */
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-  margin-bottom: 0;
-  animation: fade-up 1.2s var(--ease-out-back);
-  /* Restored bounce */
-}
-
-/* Desktop Spacing Adjustments - Tightened */
-.opening #p1 {
-  position: absolute;
-  left: 19vw;
-  top: 38%;
-  background-color: transparent;
-  animation: fade-down 1s var(--ease-out-back) 0.2s backwards;
-}
-
-.opening h2 {
-  position: absolute;
-  left: 18.9vw;
-  top: 41.5%;
-  /* Tighter gap */
-  background-color: transparent;
-  font-size: 40px;
-  font-weight: bold;
-  border: none;
-  overflow: visible;
-  animation: fade-down 1s var(--ease-out-back) 0.4s backwards;
-}
-
-.opening h4 {
-  position: absolute;
-  left: 19vw;
-  top: 45.5%;
-  /* Tighter gap */
-  background-color: transparent;
-  font-size: 24px;
-  animation: fade-down 1s var(--ease-out-back) 0.6s backwards;
-}
-
-.opening #p2 {
-  position: absolute;
-  left: 19vw;
-  top: 49%;
-  /* Tighter gap */
-  background-color: transparent;
-  animation: fade-down 1s var(--ease-out-back) 0.8s backwards;
-}
-
-.social-shortcuts {
-  position: absolute;
-  left: 19vw;
-  top: 53%;
-  display: flex;
-  gap: 20px;
-  animation: fade-down 1s var(--ease-out-back) 1s backwards;
-}
-
-.social-shortcuts a {
-  color: #fff;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.social-shortcuts a:hover {
-  transform: translateY(-3px);
-  color: #ece089;
-}
-
-/* Global Grayscale Image Style */
-/* Exclude skills and footer images */
-img:not(.opening img):not(.skill img):not(.language-logo):not(footer img) {
+/* ==================== GLOBAL GRAYSCALE ==================== */
+img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):not(.menu-icon img) {
   filter: grayscale(100%);
   transition: filter 0.5s ease;
 }
 
-img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover {
+img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):not(.menu-icon img):hover {
   filter: grayscale(0%);
+}
+
+/* ==================== ABOUT SECTION ==================== */
+.about {
+  width: 100%;
+  height: 100%;
+  margin-top: 80px;
+  padding: 0;
+  overflow-y: hidden;
 }
 
 .about h2 {
@@ -605,7 +395,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   left: 3.4vw;
   font-size: 30px;
   font-weight: bold;
-  color: #222;
+  color: #333;
   margin-bottom: 20px;
   background-clip: text;
   -webkit-background-clip: text;
@@ -631,7 +421,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   height: auto;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
   animation: fade-up 1.5s var(--ease-out-back);
 }
 
@@ -639,6 +429,11 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   color: white;
   text-decoration: underline;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.click:hover {
+  opacity: 0.7;
 }
 
 .about h1 {
@@ -647,6 +442,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   bottom: 65vh;
   font-size: 89px;
   font-weight: bold;
+  color: #fff;
   line-height: 1.2;
   text-decoration: none;
   background-color: transparent;
@@ -677,6 +473,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   bottom: 60vh;
 }
 
+/* ==================== EDUCATION & SKILLS SECTIONS ==================== */
 .education-section,
 .keahlian {
   width: 80%;
@@ -686,22 +483,18 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   align-items: center;
 }
 
-/* Consistent Section Headers */
+/* Consistent Section Headers — Monochrome */
 .education-section h2,
 .keahlian h2 {
   font-size: 36px;
   font-weight: bold;
   color: white;
-  /* Make header text visible white */
   margin-bottom: 60px;
-  /* Increased from 40px */
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   text-align: center;
   position: relative;
-  /* Add underline effect */
   padding-bottom: 20px;
-  /* Increased from 10px */
 }
 
 .education-section h2::after,
@@ -712,111 +505,94 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   bottom: 0;
   transform: translateX(-50%);
   width: 80px;
-  /* Increased width */
-  height: 5px;
-  /* Increased height */
-  background: #ece089;
+  height: 3px;
+  background: #fff;
   border-radius: 2px;
 }
 
-
-/* Stylish Education Card */
+/* Education Card — Monochrome */
 .education-item {
   display: flex;
   align-items: center;
   gap: 40px;
-  /* Increased gap */
-  background: rgba(255, 255, 255, 0.05);
-  /* Slightly brighter */
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(10px);
   padding: 50px;
-  /* Increased padding */
   border-radius: 20px;
   width: 100%;
   max-width: 1100px;
-  /* Further maximized Width */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 80px;
-  /* Significantly increased space below */
 }
 
 .education-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.25);
 }
 
 .edu-logo img {
   border-radius: 15px;
-  /* Softer corners */
   width: 120px;
-  /* Even Larger logo */
 }
 
 .edu-content h3 {
   margin: 0 0 15px 0;
-  /* More space */
   font-size: 32px;
-  /* Larger title */
   color: #fff;
 }
 
 .edu-role {
   font-size: 22px;
-  /* Larger role text */
-  color: #ece089;
+  color: #aaa;
   margin: 0 0 12px 0;
   font-weight: 500;
 }
 
 .edu-date {
   font-size: 18px;
-  color: #aaa;
+  color: #666;
   margin: 0 0 20px 0;
   font-style: italic;
 }
 
 .edu-desc {
   font-size: 18px;
-  color: #ddd;
+  color: #bbb;
   line-height: 1.8;
-  /* More breathing room for text */
 }
 
-/* Skills Section Refinement */
+/* ==================== SKILLS SECTION ==================== */
+.keahlian {
+  text-align: center;
+}
+
 .skills {
   display: flex;
   justify-content: center;
   gap: 50px;
-  /* Increased gap between cards */
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 80px;
-  /* Add space below skills */
 }
 
 .skill {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(5px);
   border-radius: 20px;
-  /* Softer corners */
   padding: 30px;
-  /* More padding */
   text-align: center;
   width: 180px;
-  /* Larger card */
   height: 220px;
-  /* Larger card */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   overflow: hidden;
-  /* For glow effect */
   position: relative;
 }
 
@@ -824,81 +600,287 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   width: 60px;
   height: 60px;
   margin-bottom: 15px;
-  transition: transform 0.3s ease;
-  /* Ensure image is colored by default per exclusion rule */
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .skill p {
-  color: white;
+  color: #888;
   font-size: 18px;
   font-weight: 600;
-  opacity: 0.8;
   margin: 0;
-  transition: opacity 0.3s ease;
+  transition: color 0.4s ease;
 }
 
 .skill:hover {
   transform: translateY(-10px) scale(1.05);
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #ece089;
-  box-shadow: 0 0 20px rgba(236, 224, 137, 0.2);
-  /* Soft Gold Glow */
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
 }
 
 .skill:hover img {
-  transform: scale(1.2);
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
 .skill:hover p {
+  color: #fff;
+}
+
+/* ==================== PROJECTS SECTION ==================== */
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.project-container h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.project-card {
+  background-color: #111;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  width: calc(40% - 20px);
+  padding: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  transition: transform 0.4s var(--ease-out-back), box-shadow 0.4s ease, border-color 0.4s ease;
+  animation: fade-up 1s ease-out backwards;
+}
+
+.project-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.project-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.project-card:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.project-card:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-card h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #fff;
+}
+
+.project-card p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.5;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.project-card p img {
+  width: 10%;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* ==================== CONTACT SECTION ==================== */
+.contact {
+  margin-top: 3rem;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#contactToggle {
+  background-color: transparent;
+  color: white;
+  padding: 12px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+#contactToggle:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+#contactFormContainer {
+  width: 30%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.contact h1 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.contact p {
+  margin-bottom: 20px;
+  color: #888;
+}
+
+.contact form {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact input,
+.contact textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  background-color: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  transition: border-color 0.3s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.contact button {
+  background-color: #222;
+  color: white;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.contact button:hover {
+  transform: translateY(-3px);
+  background-color: #333;
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== FOOTER ==================== */
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-media {
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a img {
+  width: 30px;
+  height: auto;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.6;
+}
+
+.social-icons a img:hover {
+  transform: translateY(-3px);
   opacity: 1;
-  color: #ece089;
 }
 
-@media (max-width: 475px) {
-  header {
-    padding: 20px 20px;
-  }
-
-  .logo {
-    font-size: 40px;
-  }
-
+footer p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
 }
 
+
+/* ==================== RESPONSIVE — 768px (Tablet & Mobile) ==================== */
 @media (max-width: 768px) {
+
+  /* --- Menu Icon --- */
   .menu-icon {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     z-index: 1001;
+    width: 40px;
+    height: 40px;
   }
 
-  .menu-icon svg {
-    width: 35px;
-    height: 35px;
-    fill: white;
+  .menu-icon img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+    filter: brightness(1);
   }
 
+  .menu-icon:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+
+  /* --- Sidebar Nav --- */
   nav {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
+    width: 75%;
+    max-width: 320px;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.8);
-    /* Semi-transparent background */
-    backdrop-filter: blur(10px);
-    /* Blur effect */
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: 0.4s ease-in-out;
-    /* Smoother transition */
+    gap: 0;
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1000;
-    border-top: none;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    /* Shadow for depth */
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
   }
 
   nav.active {
@@ -907,30 +889,66 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
 
   nav a {
     display: block;
-    margin: 25px 0;
-    font-size: 24px;
-    color: #fff;
+    margin: 0;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: #777;
     opacity: 0;
-    transform: translateX(50px);
-    /* Slide in effect for links */
-    transition: 0.4s ease-in-out;
+    transform: translateX(30px);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background: #fff;
+    transition: width 0.3s ease;
+  }
+
+  nav a:hover::after {
+    width: 60%;
   }
 
   nav.active a {
     opacity: 1;
     transform: translateX(0);
+  }
+
+  nav.active a:nth-child(1) {
+    transition-delay: 0.1s;
+  }
+
+  nav.active a:nth-child(2) {
     transition-delay: 0.2s;
-    /* Staggered animation */
+  }
+
+  nav.active a:nth-child(3) {
+    transition-delay: 0.3s;
+  }
+
+  nav.active a:nth-child(4) {
+    transition-delay: 0.4s;
   }
 
   nav a:hover {
-    color: #ece089;
-    /* Highlight color */
-    transform: scale(1.1);
     color: #fff;
+    background: rgba(255, 255, 255, 0.03);
   }
 
-  /* Unified Stacked Layout for Tablets & Mobile */
+  /* --- Hero Section (Stacked) --- */
   .opening {
     left: 0;
     display: flex;
@@ -938,27 +956,27 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 50px;
-    /* Slight padding for tablets */
+    padding: 80px 20px 40px;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 
   .opening img {
-    width: 280px;
-    /* Tablet size */
-    height: 280px;
-    max-width: 80vw;
+    width: 260px;
+    height: 260px;
+    max-width: 70vw;
     position: static;
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
     transform: none;
     left: auto;
     top: auto;
     object-fit: cover;
     padding: 0;
     border-radius: 50%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    /* Deeper, more elegant shadow */
-    border: 3px solid rgba(255, 255, 255, 0.1);
-    /* Subtle border */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    animation: fade-up 1s ease backwards;
   }
 
   .opening h2,
@@ -972,93 +990,105 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
     width: auto;
     padding: 0;
     text-align: center;
-  }
-
-  .opening h2 {
-    font-size: 42px;
-    /* Larger for impact */
-    margin: 15px 0 5px;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  }
-
-  .opening h4 {
-    font-size: 16px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    /* Elegant uppercase */
-    letter-spacing: 3px;
-    /* Premium letter spacing */
-    font-weight: 300;
-    color: #ece089;
-    /* Gold accent color */
-    opacity: 0.9;
+    animation: fade-up 1s ease backwards;
   }
 
   .opening #p1 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 300;
-    opacity: 0.8;
+    color: #888;
+    opacity: 0.9;
     letter-spacing: 0.5px;
+    animation-delay: 0.1s;
+  }
+
+  .opening h2 {
+    font-size: 38px;
+    margin: 10px 0 5px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    animation-delay: 0.2s;
+  }
+
+  .opening h4 {
+    font-size: 14px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 300;
+    color: #777;
+    animation-delay: 0.3s;
   }
 
   .opening #p2 {
-    font-size: 16px;
-    opacity: 0.8;
+    font-size: 15px;
+    color: #999;
+    opacity: 0.9;
     margin-top: 5px;
+    animation-delay: 0.4s;
   }
 
+  /* --- Social Shortcuts (Responsive) --- */
   .social-shortcuts {
     position: static;
-    margin-top: 20px;
+    margin-top: 25px;
     justify-content: center;
-    animation: none;
+    animation: fade-up 1s ease 0.5s backwards;
     opacity: 1;
   }
 
+  .social-shortcuts a {
+    color: #666;
+  }
+
+  .social-shortcuts a:hover {
+    color: #fff;
+  }
+
+  /* --- Project Cards (Responsive) --- */
   .project-card p {
     font-size: 14px;
-    color: #fff;
+    color: #aaa;
     line-height: 1.5;
     padding: 0 10px;
-    /* Menambahkan padding untuk teks */
     margin-bottom: 15px;
-    /* Memberikan jarak bawah antara teks dan gambar logo */
     text-align: center;
   }
 
   .project-card p img {
     width: 10%;
     margin-top: 10px;
-    /* Menambahkan jarak atas gambar logo */
     display: inline-block;
-    /* Menampilkan gambar secara inline */
   }
 
+  /* --- Contact (Responsive) --- */
   .contact {
     margin-top: 3rem;
     width: 100%;
-    height: 60vh;
+    height: auto;
+    min-height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 40px 20px;
   }
 
   #contactToggle {
-    background-color: #222222;
+    background-color: transparent;
     color: white;
     padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
     cursor: pointer;
     margin-bottom: 20px;
-    transition: opacity 0.5s ease;
+    transition: all 0.3s ease;
   }
 
   #contactFormContainer {
-    width: 30%;
+    width: 80%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.6s ease, opacity 0.6s ease;
@@ -1075,8 +1105,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
 
   .contact form {
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
 
   .contact input,
@@ -1084,19 +1113,21 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
-    background-color: #000000;
+    border-radius: 8px;
+    background-color: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .contact button {
-    background-color: #222222;
+    background-color: #222;
     color: white;
     padding: 10px;
-    border: none;
-    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
     cursor: pointer;
   }
 
+  /* --- Footer (Responsive) --- */
   footer {
     display: flex;
     flex-direction: column;
@@ -1112,31 +1143,27 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
   .social-icons {
     display: flex;
     gap: 15px;
-    /* Space between icons */
   }
 
   .social-icons a img {
     width: 30px;
-    /* Adjust icon size */
     height: auto;
   }
 
   footer p {
     margin: 0;
     font-size: 14px;
-    color: #333;
-    /* Optional: Text color */
+    color: #555;
   }
 
-
-
+  /* ==================== RESPONSIVE — 475px (Phone) ==================== */
   @media (max-width: 475px) {
     header {
-      padding: 20px 20px;
+      padding: 15px 15px;
     }
 
     .logo {
-      font-size: 40px;
+      font-size: 36px;
     }
 
     .about {
@@ -1149,10 +1176,7 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
       left: 9vw;
       margin-top: 2px;
       max-width: 58.5%;
-      /* Membuat gambar responsif */
       height: auto;
-      /* Menjaga rasio aspek gambar */
-      align-items: center;
     }
 
     .about h1 {
@@ -1196,12 +1220,9 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
       position: relative;
       width: 95%;
       margin: 0 auto;
-      /* Memusatkan elemen secara horizontal */
       text-align: center;
-      /* Memusatkan teks dalam section */
       margin-bottom: 8rem;
       align-items: center;
-      position: relative;
       top: 2vh;
     }
 
@@ -1211,12 +1232,10 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
       text-align: center;
       gap: 15px;
       padding: 20px;
-      /* Adjust padding for mobile */
     }
 
     .edu-logo img {
       width: 50px;
-      /* Mengurangi ukuran logo pendidikan */
       margin-bottom: 10px;
       margin-top: 16px;
     }
@@ -1235,55 +1254,47 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
     .project-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-      height: 100vh;
-      position: relative;
-      height: 100%;
       gap: 50px;
+      justify-content: center;
+      height: 100%;
       margin-bottom: 10vh;
     }
 
     .project-card {
-      background-color: #333;
+      background-color: #111;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 10px;
-      width: 25%;
-      /* Sets two cards per row on larger screens */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 85%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
       text-align: center;
       transition: transform 0.3s ease;
       color: #fff;
-      width: 80%;
-      position: relative;
-      bottom: 5vh;
     }
 
     .project-card:hover {
-      transform: scale(1.05);
+      transform: scale(1.02);
     }
 
     .opening img {
-      width: 240px;
-      /* Slightly smaller for balance */
-      height: 240px;
+      width: 220px;
+      height: 220px;
       margin-bottom: 15px;
     }
 
     .opening h2 {
-      font-size: 32px;
-      /* proportional to tablet */
+      font-size: 30px;
       margin: 10px 0 5px;
     }
 
     .opening h4 {
-      font-size: 14px;
-      margin-bottom: 20px;
+      font-size: 13px;
+      margin-bottom: 15px;
       letter-spacing: 2px;
     }
 
     .opening #p1,
     .opening #p2 {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .project-card img {
@@ -1303,63 +1314,47 @@ img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):hover 
       line-height: 1.5;
     }
 
-    .project-container h3 {
-      position: relative;
-      top: 10rem;
-    }
-
     .social-icons img {
-      width: 40px;
-      /* Mengurangi ukuran icon sosial media */
+      width: 35px;
       margin-bottom: 10px;
     }
 
     #contactFormContainer {
       width: 90%;
-      /* Menyesuaikan lebar agar sesuai dengan layar kecil */
     }
 
     #contactToggle {
-      width: 30%;
-      /* Sesuaikan tombol agar lebih ramping */
-      padding: 10px;
-      font-size: 16px;
-      /* Memperkecil ukuran teks */
+      width: auto;
+      padding: 10px 20px;
+      font-size: 14px;
     }
 
     .contact h1 {
       font-size: 24px;
-      /* Mengatur ukuran teks h1 agar lebih kecil */
     }
 
     .contact p {
       font-size: 14px;
-      /* Mengatur ukuran teks paragraf */
     }
 
     .contact form {
       padding: 15px;
-      /* Mengurangi padding formulir agar lebih cocok untuk layar kecil */
     }
 
     .contact input,
     .contact textarea {
       padding: 8px;
-      /* Mengurangi padding pada input dan textarea */
     }
 
     .contact button[type="submit"] {
       padding: 8px;
-      /* Menyesuaikan tombol Kirim */
-      font-size: 16px;
-      /* Memperkecil ukuran teks tombol */
+      font-size: 14px;
     }
 
     footer {
       width: 100%;
       position: relative;
       align-items: center;
-      animation: fade 5.5s;
     }
   }
 }
