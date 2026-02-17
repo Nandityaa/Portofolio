@@ -19,18 +19,71 @@ document.addEventListener("DOMContentLoaded", function () {
   fadeElements.forEach(element => {
     observer.observe(element);
   });
+
+  // Mobile/Tablet: Toggle effects on scroll (since no hover on touch)
+  if ('ontouchstart' in window || window.matchMedia('(max-width: 1024px)').matches) {
+    // ALL grayscale images — color only when in center of screen
+    const allImages = document.querySelectorAll(
+      'img:not(.opening img):not(.skill img):not(.language-logo):not(footer img):not(.menu-icon img)'
+    );
+
+    const imgObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-25% 0px -25% 0px',  // Only center 50% of viewport counts
+      threshold: 0.1
+    });
+
+    allImages.forEach(img => {
+      imgObserver.observe(img);
+    });
+
+    // Skill cards + Project cards — auto hover when in center
+    const hoverCards = document.querySelectorAll('.skill, .project-card');
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, {
+      root: null,
+      rootMargin: '-20% 0px -20% 0px',  // Center 60% of viewport
+      threshold: 0.2
+    });
+
+    hoverCards.forEach(card => {
+      cardObserver.observe(card);
+    });
+  }
 });
 
 document.getElementById("contactToggle").addEventListener("click", function () {
   var formContainer = document.getElementById("contactFormContainer");
   var toggleButton = document.getElementById("contactToggle");
+  var isOpen = formContainer.classList.contains("open");
 
-  formContainer.style.maxHeight = "500px"; // Adjust the max height as needed
-  formContainer.style.opacity = "1"; // Show the form smoothly
-  toggleButton.style.opacity = "0"; // Make the button fade out
-  setTimeout(function () {
-    toggleButton.style.display = "none"; // Hide the button after transition
-  }, 500); // Delay to match the transition duration
+  if (!isOpen) {
+    formContainer.classList.add("open");
+    formContainer.style.maxHeight = formContainer.scrollHeight + "px";
+    formContainer.style.opacity = "1";
+    toggleButton.textContent = "Close";
+  } else {
+    formContainer.classList.remove("open");
+    formContainer.style.maxHeight = "0";
+    formContainer.style.opacity = "0";
+    toggleButton.textContent = "Contact Me";
+  }
 });
 
 
