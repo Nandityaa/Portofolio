@@ -19,6 +19,8 @@
 html,
 body {
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 #backToTop {
@@ -554,6 +556,32 @@ img.in-view:not(.opening img):not(.skill img):not(.language-logo):not(footer img
   bottom: 60vh;
 }
 
+/* About Me — Fun Facts Tags */
+.about-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.about-tags .tag {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #aaa;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.about-tags .tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
 /* ==================== EDUCATION & SKILLS SECTIONS ==================== */
 .education-section,
 .keahlian {
@@ -685,6 +713,14 @@ img.in-view:not(.opening img):not(.skill img):not(.language-logo):not(footer img
 .skill img {
   width: 60px;
   height: 60px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.skill svg {
+  width: 60px;
+  height: 60px;
   margin-bottom: 15px;
   transition: transform 0.4s ease, filter 0.4s ease;
 }
@@ -697,6 +733,35 @@ img.in-view:not(.opening img):not(.skill img):not(.language-logo):not(footer img
   transition: color 0.4s ease;
 }
 
+/* Staggered entrance for skill cards */
+.skill:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.skill:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.skill:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.skill:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.skill:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.skill:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.skill:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
 .skill:hover,
 .skill.in-view {
   transform: translateY(-10px) scale(1.05);
@@ -707,6 +772,12 @@ img.in-view:not(.opening img):not(.skill img):not(.language-logo):not(footer img
 
 .skill:hover img,
 .skill.in-view img {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.skill:hover svg,
+.skill.in-view svg {
   transform: scale(1.15);
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
@@ -1149,7 +1220,7 @@ footer p {
 
   /* --- About Section (Responsive — NUCLEAR Override) --- */
   .about {
-    margin-top: 40px !important;
+    margin-top: 20px !important;
     padding: 20px !important;
     overflow: hidden !important;
     height: auto !important;
@@ -1231,11 +1302,46 @@ footer p {
     bottom: auto !important;
   }
 
+  .about-tags {
+    position: static !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin-top: 15px !important;
+    justify-content: center !important;
+  }
+
+  .about-tags .tag {
+    font-size: 11px !important;
+    padding: 5px 12px !important;
+  }
+
+  /* --- Skills SVG Mobile --- */
+  .skill svg {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+  }
+
   /* --- Education Section (Responsive) --- */
-  .education-section,
+  .education-section {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 60px;
+  }
+
   .keahlian {
     width: 100%;
     padding: 0 15px;
+    margin-top: 60px;
+  }
+
+  /* --- Project & Contact Spacing (Responsive) --- */
+  .project-container {
+    margin-top: 60px;
+  }
+
+  .contact {
+    margin-top: 60px;
   }
 
   .education-section h2,
@@ -1288,6 +1394,7 @@ footer p {
   .skill img {
     width: 45px;
     height: 45px;
+    object-fit: contain;
     margin-bottom: 10px;
   }
 
@@ -1428,91 +1535,6 @@ footer p {
 
     .logo {
       font-size: 36px;
-    }
-
-    .about {
-      height: 150vh;
-      width: 140%;
-    }
-
-    .about img {
-      position: relative;
-      left: 9vw;
-      margin-top: 2px;
-      max-width: 58.5%;
-      height: auto;
-    }
-
-    .about h1 {
-      position: relative;
-      font-size: 30px;
-      padding: 30px;
-      margin-bottom: 30px;
-      top: 6vh;
-      left: 0.7vw;
-    }
-
-    .about h2 {
-      bottom: 70px;
-    }
-
-    .about #p1 {
-      text-align: justify;
-      position: relative;
-      top: 0.1vh;
-      font-size: 13px;
-      left: 9vw;
-    }
-
-    .about #p2 {
-      text-align: justify;
-      position: relative;
-      top: 2.5vh;
-      font-size: 13px;
-      left: 9vw;
-    }
-
-    .about #p3 {
-      text-align: justify;
-      position: relative;
-      top: 4.5vh;
-      font-size: 13px;
-      left: 9vw;
-    }
-
-    .education-section {
-      position: relative;
-      width: 95%;
-      margin: 0 auto;
-      text-align: center;
-      margin-bottom: 8rem;
-      align-items: center;
-      top: 2vh;
-    }
-
-    .education-item {
-      width: 100%;
-      flex-direction: column;
-      text-align: center;
-      gap: 15px;
-      padding: 20px;
-    }
-
-    .edu-logo img {
-      width: 50px;
-      margin-bottom: 10px;
-      margin-top: 16px;
-    }
-
-    .edu-content p {
-      margin: 15px 0 0;
-      font-size: 14px;
-    }
-
-    .edu-content h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: bold;
     }
 
     .project-container {
