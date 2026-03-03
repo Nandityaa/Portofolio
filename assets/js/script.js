@@ -67,26 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-document.getElementById("contactToggle").addEventListener("click", function () {
-  var formContainer = document.getElementById("contactFormContainer");
-  var toggleButton = document.getElementById("contactToggle");
-  var isOpen = formContainer.classList.contains("open");
-
-  if (!isOpen) {
-    formContainer.classList.add("open");
-    formContainer.style.maxHeight = formContainer.scrollHeight + "px";
-    formContainer.style.opacity = "1";
-    toggleButton.textContent = "Close";
-  } else {
-    formContainer.classList.remove("open");
-    formContainer.style.maxHeight = "0";
-    formContainer.style.opacity = "0";
-    toggleButton.textContent = "Contact Me";
-  }
-});
-
-
 // Menampilkan ikon panah saat scroll melewati setengah halaman
 window.onscroll = function () {
   const backToTop = document.getElementById("backToTop");
