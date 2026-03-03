@@ -11,7 +11,7 @@
   <meta property="og:title" content="Nafa Nanditya — Portfolio">
   <meta property="og:description" content="Web Developer & RPL Student dari Bali">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="assets/css/style.css?v=6">
+  <link rel="stylesheet" href="assets/css/style.css?v=7">
 </head>
 
 <body>
@@ -244,7 +244,7 @@
     <p>Ada pertanyaan atau mau kolaborasi? Hubungi saya!</p>
 
     <form id="contactForm" action="https://formsubmit.co/nandityanafa@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://nandityaa.github.io/Portofolio/">
+      <input type="hidden" name="_next" value="https://nandityaa.github.io/Portofolio/?sent=true">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" id="name" placeholder="Name" name="name" required>
       <input type="email" id="email" placeholder="Email" name="email" required>
@@ -274,6 +274,29 @@
 
   <div id="backToTop" onclick="scrollToTop()">
     ↑
+  </div>
+
+  <!-- Premium Toast Notification -->
+  <div id="toast-notification" class="toast">
+    <div class="toast-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4ade80"
+        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    </div>
+    <div class="toast-body">
+      <p class="toast-title">Message Sent</p>
+      <p class="toast-desc">Your message has been delivered successfully.</p>
+    </div>
+    <button class="toast-close" onclick="dismissToast()">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+    <div class="toast-progress"></div>
   </div>
 
   <script src="assets/js/script.js"></script>

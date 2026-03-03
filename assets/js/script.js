@@ -118,3 +118,34 @@ if (menuIcon && navMenu) {
     }
   });
 }
+
+// ==================== TOAST NOTIFICATION ====================
+function dismissToast() {
+  const toast = document.getElementById('toast-notification');
+  if (toast) {
+    toast.classList.remove('show');
+    toast.classList.add('hide');
+    setTimeout(() => toast.style.display = 'none', 500);
+  }
+}
+
+// Check if redirected from FormSubmit (?sent=true)
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('sent') === 'true') {
+    const toast = document.getElementById('toast-notification');
+    if (toast) {
+      // Small delay for page load, then slide in
+      setTimeout(() => {
+        toast.style.display = 'flex';
+        requestAnimationFrame(() => toast.classList.add('show'));
+      }, 300);
+
+      // Auto-dismiss after 4s (matches CSS progress bar)
+      setTimeout(() => dismissToast(), 4300);
+
+      // Clean up URL (remove ?sent=true)
+      history.replaceState(null, '', window.location.pathname);
+    }
+  }
+})();
