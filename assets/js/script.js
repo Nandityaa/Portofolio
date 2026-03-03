@@ -129,28 +129,69 @@ function dismissToast() {
   }
 }
 
-// Check if redirected from FormSubmit (?sent=true)
-window.addEventListener('load', function () {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('sent') === 'true') {
-    const toast = document.getElementById('toast-notification');
-    if (toast) {
-      // Clean up URL first
-      history.replaceState(null, '', window.location.pathname);
+// Submit contact form via fetch (no redirect) + show toast
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-      // Show toast with slight delay
-      setTimeout(function () {
-        toast.style.display = 'flex';
-        // Double rAF ensures browser paints before adding class
-        requestAnimationFrame(function () {
-          requestAnimationFrame(function () {
-            toast.classList.add('show');
-          });
-        });
-      }, 500);
+    const formData = new FormData(contactForm);
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
 
-      // Auto-dismiss after 4.5s
-      setTimeout(function () { dismissToast(); }, 5000);
-    }
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          showToast();
+          contactForm.reset();
+        } else {
+          showToast(true);
+        }
+      })
+      .catch(function () {
+        showToast(true);
+      })
+      .finally(function () {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      });
+  });
+}
+
+function showToast(isError) {
+  const toast = document.getElementById('toast-notification');
+  if (!toast) return;
+
+  if (isError) {
+    toast.querySelector('.toast-title').textContent = 'Failed to Send';
+    toast.querySelector('.toast-desc').textContent = 'Something went wrong. Please try again.';
+    toast.style.borderLeftColor = '#f87171';
+    toast.querySelector('.toast-icon svg').setAttribute('stroke', '#f87171');
+  } else {
+    toast.querySelector('.toast-title').textContent = 'Message Sent';
+    toast.querySelector('.toast-desc').textContent = 'Your message has been delivered successfully.';
+    toast.style.borderLeftColor = '#4ade80';
+    toast.querySelector('.toast-icon svg').setAttribute('stroke', '#4ade80');
   }
-});
+
+  // Reset animation
+  const progress = toast.querySelector('.toast-progress');
+  progress.style.animation = 'none';
+  toast.classList.remove('show', 'hide');
+
+  toast.style.display = 'flex';
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      toast.classList.add('show');
+      progress.style.animation = '';
+    });
+  });
+
+  setTimeout(function () { dismissToast(); }, 5000);
+}
