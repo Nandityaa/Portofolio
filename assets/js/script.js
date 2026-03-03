@@ -130,22 +130,27 @@ function dismissToast() {
 }
 
 // Check if redirected from FormSubmit (?sent=true)
-(function () {
+window.addEventListener('load', function () {
   const params = new URLSearchParams(window.location.search);
   if (params.get('sent') === 'true') {
     const toast = document.getElementById('toast-notification');
     if (toast) {
-      // Small delay for page load, then slide in
-      setTimeout(() => {
-        toast.style.display = 'flex';
-        requestAnimationFrame(() => toast.classList.add('show'));
-      }, 300);
-
-      // Auto-dismiss after 4s (matches CSS progress bar)
-      setTimeout(() => dismissToast(), 4300);
-
-      // Clean up URL (remove ?sent=true)
+      // Clean up URL first
       history.replaceState(null, '', window.location.pathname);
+
+      // Show toast with slight delay
+      setTimeout(function () {
+        toast.style.display = 'flex';
+        // Double rAF ensures browser paints before adding class
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            toast.classList.add('show');
+          });
+        });
+      }, 500);
+
+      // Auto-dismiss after 4.5s
+      setTimeout(function () { dismissToast(); }, 5000);
     }
   }
-})();
+});

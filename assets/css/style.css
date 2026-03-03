@@ -152,6 +152,10 @@ body {
   background: #4ade80;
   border-radius: 0 0 12px 12px;
   transform-origin: left;
+  transform: scaleX(1);
+}
+
+.toast.show .toast-progress {
   animation: toast-countdown 4s linear forwards;
 }
 
