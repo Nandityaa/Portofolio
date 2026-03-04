@@ -1342,10 +1342,10 @@ footer p {
     color: #fff;
   }
 
-  /* --- About Section (Responsive — NUCLEAR Override) --- */
+  /* --- About Section (Responsive — Premium Mobile) --- */
   .about {
     margin-top: 20px !important;
-    padding: 20px !important;
+    padding: 30px 20px !important;
     overflow: hidden !important;
     height: auto !important;
     width: 100% !important;
@@ -1358,15 +1358,16 @@ footer p {
     position: relative !important;
     left: auto !important;
     top: auto !important;
-    font-size: 22px !important;
+    font-size: 24px !important;
     text-align: center !important;
     width: auto !important;
-    margin: 0 auto 15px !important;
+    margin: 0 auto 20px !important;
     color: #fff !important;
     background-clip: border-box !important;
     -webkit-background-clip: border-box !important;
     -webkit-text-fill-color: #fff !important;
     animation: fadeSlideUp 1s ease forwards !important;
+    letter-spacing: 1px !important;
   }
 
   .about h2::before {
@@ -1377,12 +1378,14 @@ footer p {
     position: static !important;
     left: auto !important;
     top: auto !important;
-    width: 60% !important;
-    max-width: 250px !important;
+    width: 70% !important;
+    max-width: 280px !important;
     height: auto !important;
     display: block !important;
-    margin: 0 auto 20px !important;
-    border-radius: 12px !important;
+    margin: 0 auto 25px !important;
+    border-radius: 16px !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 255, 255, 0.03) !important;
   }
 
   .about h1 {
@@ -1390,11 +1393,21 @@ footer p {
     left: auto !important;
     bottom: auto !important;
     top: auto !important;
-    font-size: 26px !important;
+    font-size: 28px !important;
     text-align: center !important;
-    margin: 0 0 15px 0 !important;
+    margin: 0 0 8px 0 !important;
     line-height: 1.3 !important;
     width: 100% !important;
+  }
+
+  .about h1::after {
+    content: "" !important;
+    display: block !important;
+    width: 40px !important;
+    height: 2px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    margin: 12px auto 20px !important;
+    border-radius: 2px !important;
   }
 
   .about #p1,
@@ -1407,11 +1420,13 @@ footer p {
     max-width: 100% !important;
     width: 100% !important;
     font-size: 14px !important;
-    text-align: justify !important;
-    margin: 0 0 12px 0 !important;
-    padding: 0 10px !important;
+    text-align: left !important;
+    line-height: 1.7 !important;
+    margin: 0 0 16px 0 !important;
+    padding: 0 15px !important;
     word-wrap: break-word !important;
     overflow-wrap: break-word !important;
+    color: #aaa !important;
   }
 
   .about #p1 {
