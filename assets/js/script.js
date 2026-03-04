@@ -195,3 +195,131 @@ function showToast(isError) {
 
   setTimeout(function () { dismissToast(); }, 5000);
 }
+
+// ==================== CODE TYPING ANIMATION ====================
+(function () {
+  var codeTarget = document.getElementById('codeTyping');
+  if (!codeTarget) return;
+
+  // Each character mapped to its syntax class
+  var codeTokens = [
+    // while
+    { ch: 'w', cls: 'syn-keyword' },
+    { ch: 'h', cls: 'syn-keyword' },
+    { ch: 'i', cls: 'syn-keyword' },
+    { ch: 'l', cls: 'syn-keyword' },
+    { ch: 'e', cls: 'syn-keyword' },
+    // (
+    { ch: '(', cls: 'syn-bracket' },
+    // growing
+    { ch: 'g', cls: 'syn-variable' },
+    { ch: 'r', cls: 'syn-variable' },
+    { ch: 'o', cls: 'syn-variable' },
+    { ch: 'w', cls: 'syn-variable' },
+    { ch: 'i', cls: 'syn-variable' },
+    { ch: 'n', cls: 'syn-variable' },
+    { ch: 'g', cls: 'syn-variable' },
+    // )
+    { ch: ')', cls: 'syn-bracket' },
+    // space
+    { ch: '\u00A0', cls: 'syn-space' },
+    // {
+    { ch: '{', cls: 'syn-bracket' },
+    // space
+    { ch: '\u00A0', cls: 'syn-space' },
+    // build
+    { ch: 'b', cls: 'syn-function' },
+    { ch: 'u', cls: 'syn-function' },
+    { ch: 'i', cls: 'syn-function' },
+    { ch: 'l', cls: 'syn-function' },
+    { ch: 'd', cls: 'syn-function' },
+    // ();
+    { ch: '(', cls: 'syn-operator' },
+    { ch: ')', cls: 'syn-operator' },
+    { ch: ';', cls: 'syn-operator' },
+    // space
+    { ch: '\u00A0', cls: 'syn-space' },
+    // }
+    { ch: '}', cls: 'syn-bracket' }
+  ];
+
+  // Color map for particles
+  var colorMap = {
+    'syn-keyword': '#c678dd',
+    'syn-bracket': '#e5c07b',
+    'syn-variable': '#98c379',
+    'syn-function': '#61afef',
+    'syn-operator': '#abb2bf',
+    'syn-space': 'transparent'
+  };
+
+  var container = codeTarget.parentElement;
+  var currentIndex = 0;
+  var isTyping = true;
+
+  function spawnParticles(charSpan, color) {
+    if (color === 'transparent') return;
+    var rect = charSpan.getBoundingClientRect();
+    var containerRect = container.getBoundingClientRect();
+    var cx = rect.left - containerRect.left + rect.width / 2;
+    var cy = rect.top - containerRect.top + rect.height / 2;
+
+    var count = 4 + Math.floor(Math.random() * 3); // 4-6 particles
+    for (var i = 0; i < count; i++) {
+      var particle = document.createElement('span');
+      particle.className = 'typing-particle';
+      var angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5);
+      var dist = 12 + Math.random() * 18;
+      particle.style.left = cx + 'px';
+      particle.style.top = cy + 'px';
+      particle.style.background = color;
+      particle.style.boxShadow = '0 0 4px ' + color;
+      particle.style.setProperty('--px', Math.cos(angle) * dist + 'px');
+      particle.style.setProperty('--py', Math.sin(angle) * dist + 'px');
+      container.appendChild(particle);
+
+      // Clean up after animation
+      (function (p) {
+        setTimeout(function () { if (p.parentNode) p.parentNode.removeChild(p); }, 600);
+      })(particle);
+    }
+  }
+
+  function typeNext() {
+    if (currentIndex < codeTokens.length) {
+      var token = codeTokens[currentIndex];
+      var span = document.createElement('span');
+      span.className = token.cls;
+      span.textContent = token.ch;
+      span.style.opacity = '0';
+      codeTarget.appendChild(span);
+
+      // Animate character appearing
+      requestAnimationFrame(function () {
+        span.style.transition = 'opacity 0.1s ease';
+        span.style.opacity = '1';
+      });
+
+      spawnParticles(span, colorMap[token.cls]);
+      currentIndex++;
+      setTimeout(typeNext, 70 + Math.random() * 40);
+    } else {
+      // Done typing — hold, then erase
+      setTimeout(eraseNext, 2000);
+    }
+  }
+
+  function eraseNext() {
+    if (codeTarget.children.length > 0) {
+      codeTarget.removeChild(codeTarget.lastChild);
+      setTimeout(eraseNext, 35);
+    } else {
+      // Done erasing — pause, then restart
+      currentIndex = 0;
+      setTimeout(typeNext, 1000);
+    }
+  }
+
+  // Start after page entrance animations
+  setTimeout(typeNext, 1500);
+})();

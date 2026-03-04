@@ -11,7 +11,10 @@
   <meta property="og:title" content="Nafa Nanditya — Portfolio">
   <meta property="og:description" content="Web Developer & RPL Student dari Bali">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css?v=10">
 </head>
 
 <body>
@@ -42,10 +45,12 @@
 
       <div class="hero-content">
         <div class="hero-accent"></div>
-        <p id="p1">Hello World, I'm</p>
+        <p class="hero-tagline">In Code We Trust</p>
+        <div class="code-typing-container">
+          <span class="code-typing" id="codeTyping"></span><span class="typing-cursor">|</span>
+        </div>
         <h2>Nafa Nanditya</h2>
         <h4>RPL Student • Web Developer</h4>
-        <p id="p2">Selamat datang di website pribadi saya 🙌</p>
 
         <!-- Premium Social Icons -->
         <div class="social-shortcuts">
@@ -87,18 +92,11 @@
     <div class="about">
       <h2 data-text="About Me">About Me</h2>
       <img src="assets/img/M1.jpg" alt="Foto Nafa Nanditya">
-      <h1>Hai,I'm Nafa</h1>
-      <p id="p1">Hai, nama lengkap saya Gede Nafa Nanditya Aristyogi, biasa dipanggil Nafa atau Napa. Saya bersekolah di
-        SMK
-        TI Bali Global Denpasar, jurusan RPL (Rekayasa Perangkat Lunak), dan fokus belajar tentang pemrograman web,
-        aplikasi, dan gim.</p>
-      <p id="p2">Saya tertarik pada pengembangan web dan aplikasi, khususnya menggunakan HTML, CSS, dan JavaScript. Saat
-        ini saya sedang
-        mengerjakan beberapa proyek web, seperti membuat portofolio digital dan website interaktif untuk tugas
-        sekolah. Detailnya bisa dilihat di <a href="#project" class="click">project</a></p>
-      <p id="p3">Di luar belajar, saya suka mendengarkan musik, terutama hip-hop. Bahkan saat nge-gym, saya sering
-        mendengarkan musik untuk menambah semangat. Di masa depan, saya ingin magang di perusahaan teknologi untuk
-        mengasah skill dan mempersiapkan karier di IT.</p>
+      <h1>Hai, I'm Nanditya</h1>
+      <p id="p1">Saya adalah siswa RPL di SMK TI Bali Global Denpasar dengan fokus pada pengembangan web dan aplikasi.
+        Menguasai dasar HTML, CSS, JavaScript, dan PHP serta terbiasa membangun proyek web untuk kebutuhan tugas dan
+        portofolio. Saat ini saya mempersiapkan diri untuk magang di bidang IT guna meningkatkan kemampuan teknis dan
+        pengalaman industri.</p>
     </div>
 
     <div class="education-section scroll-fade-in" id="education">
@@ -113,10 +111,11 @@
         </div>
         <div class="edu-content">
           <h3>SMK TI Bali Global Denpasar</h3>
-          <p class="edu-role">Siswa Rekayasa Perangkat Lunak (RPL)</p>
+          <p class="edu-role">Jurusan: Rekayasa Perangkat Lunak (RPL)</p>
           <p class="edu-date">2023 - Sekarang</p>
-          <p class="edu-desc">Fokus mempelajari pengembangan Web, Sistem Backend, dan Desain Aplikasi. Aktif mengikuti
-            kompetisi coding dan proyek sekolah.</p>
+          <p class="edu-desc">Mempelajari pengembangan Web (HTML, CSS, JavaScript, PHP), dasar sistem backend, serta
+            perancangan antarmuka aplikasi. Terlibat dalam pembuatan proyek berbasis web dan sistem sederhana untuk
+            kebutuhan tugas dan praktik.</p>
           <a href="https://smkti-baliglobal.sch.id" target="_blank" class="edu-link">🌐 Kunjungi Website Sekolah</a>
         </div>
       </div>
@@ -127,11 +126,13 @@
           <img src="assets/img/esport.jpg" alt="Logo E-Sport" width="80">
         </div>
         <div class="edu-content">
-          <h3>Organisasi E-Sport Sekolah</h3>
+          <h3>Globaliti E-Sport</h3>
           <p class="edu-role">Tim Kreatif — Social Media Manager</p>
           <p class="edu-date">Instagram Handler</p>
-          <p class="edu-desc">Bertanggung jawab mengelola konten Instagram organisasi e-sport sekolah, termasuk desain
-            grafis, konten strategi, dan engagement komunitas gaming.</p>
+          <p class="edu-desc">Mengelola dan merancang konten Instagram organisasi, termasuk desain grafis, penjadwalan
+            posting, serta peningkatan interaksi audiens melalui strategi konten terarah.</p>
+          <a href="https://www.instagram.com/globaliti.esport/" target="_blank" class="edu-link">📸 Instagram Globaliti
+            E-Sport</a>
         </div>
       </div>
     </div>
@@ -243,9 +244,9 @@
     <h1>Get In Touch</h1>
     <p>Ada pertanyaan atau mau kolaborasi? Hubungi saya!</p>
 
-    <form id="contactForm" action="https://formsubmit.co/nandityanafa@gmail.com" method="POST">
-      <input type="hidden" name="_next" value="https://nandityaa.github.io/Portofolio/">
-      <input type="hidden" name="_subject" value="Pesan Baru dari Portfolio">
+    <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="0fac4175-abea-45cf-990c-130da9a331fc">
+      <input type="hidden" name="subject" value="Pesan Baru dari Portfolio">
       <input type="text" id="name" placeholder="Name" name="name" required>
       <input type="email" id="email" placeholder="Email" name="email" required>
       <textarea id="message" name="message" placeholder="Message" rows="4" required></textarea>
