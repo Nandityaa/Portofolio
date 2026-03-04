@@ -180,7 +180,7 @@ function showToast(isError) {
     toast.querySelector('.toast-icon svg').setAttribute('stroke', '#4ade80');
   }
 
-  // Reset animation
+  // Reset animations
   const progress = toast.querySelector('.toast-progress');
   progress.style.animation = 'none';
   toast.classList.remove('show', 'hide');
