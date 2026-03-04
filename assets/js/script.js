@@ -130,8 +130,6 @@ function dismissToast() {
 }
 
 // Submit contact form via fetch (no redirect) + show toast
-// TEMPORARILY DISABLED — uncomment after FormSubmit activation
-/*
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', function (e) {
@@ -165,7 +163,6 @@ if (contactForm) {
       });
   });
 }
-*/
 
 function showToast(isError) {
   const toast = document.getElementById('toast-notification');
