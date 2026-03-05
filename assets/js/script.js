@@ -279,11 +279,12 @@ if (contactForm) {
     { ch: 'e', cls: 'syn-keyword' },
     // (
     { ch: '(', cls: 'syn-bracket' },
-    // growing
-    { ch: 'g', cls: 'syn-variable' },
+    // learning
+    { ch: 'l', cls: 'syn-variable' },
+    { ch: 'e', cls: 'syn-variable' },
+    { ch: 'a', cls: 'syn-variable' },
     { ch: 'r', cls: 'syn-variable' },
-    { ch: 'o', cls: 'syn-variable' },
-    { ch: 'w', cls: 'syn-variable' },
+    { ch: 'n', cls: 'syn-variable' },
     { ch: 'i', cls: 'syn-variable' },
     { ch: 'n', cls: 'syn-variable' },
     { ch: 'g', cls: 'syn-variable' },
