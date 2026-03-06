@@ -434,13 +434,8 @@ if (contactForm) {
     // Swipe Hint
     hintEl = document.createElement('p');
     hintEl.className = 'swipe-hint';
-    hintEl.textContent = '👆 Click or swipe right-to-left for next';
+    hintEl.textContent = 'Swipe to explore';
     container.parentNode.appendChild(hintEl);
-
-    // Setup cards click to go next
-    for (var c = 0; c < cards.length; c++) {
-      cards[c].addEventListener('click', onCardClick);
-    }
   }
 
   function removeUI() {
@@ -453,15 +448,10 @@ if (contactForm) {
       hintEl.parentNode.removeChild(hintEl);
       hintEl = null;
     }
-    for (var c = 0; c < cards.length; c++) {
-      cards[c].removeEventListener('click', onCardClick);
-    }
+
   }
 
-  function onCardClick() {
-    if (!isActive || isAnimating) return;
-    goTo(currentIndex < cards.length - 1 ? currentIndex + 1 : 0);
-  }
+
 
   function goTo(index) {
     if (isAnimating || index === currentIndex) return;
