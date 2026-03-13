@@ -1588,6 +1588,33 @@ footer p {
     display: inline-block;
   }
 
+  /* Visit Website Button */
+  .visit-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 9px 24px;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .visit-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: scale(1.04);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+    color: #fff;
+  }
+
   /* Carousel Dot Indicators */
   .stack-dots {
     display: flex;
