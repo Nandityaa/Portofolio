@@ -279,37 +279,15 @@ if (contactForm) {
     { ch: 'e', cls: 'syn-keyword' },
     // (
     { ch: '(', cls: 'syn-bracket' },
-    // learning
-    { ch: 'l', cls: 'syn-variable' },
-    { ch: 'e', cls: 'syn-variable' },
-    { ch: 'a', cls: 'syn-variable' },
+    // true
+    { ch: 't', cls: 'syn-variable' },
     { ch: 'r', cls: 'syn-variable' },
-    { ch: 'n', cls: 'syn-variable' },
-    { ch: 'i', cls: 'syn-variable' },
-    { ch: 'n', cls: 'syn-variable' },
-    { ch: 'g', cls: 'syn-variable' },
+    { ch: 'u', cls: 'syn-variable' },
+    { ch: 'e', cls: 'syn-variable' },
     // )
     { ch: ')', cls: 'syn-bracket' },
-    // space
-    { ch: '\u00A0', cls: 'syn-space' },
-    // {
-    { ch: '{', cls: 'syn-bracket' },
-    // space
-    { ch: '\u00A0', cls: 'syn-space' },
-    // build
-    { ch: 'b', cls: 'syn-function' },
-    { ch: 'u', cls: 'syn-function' },
-    { ch: 'i', cls: 'syn-function' },
-    { ch: 'l', cls: 'syn-function' },
-    { ch: 'd', cls: 'syn-function' },
-    // ();
-    { ch: '(', cls: 'syn-operator' },
-    { ch: ')', cls: 'syn-operator' },
-    { ch: ';', cls: 'syn-operator' },
-    // space
-    { ch: '\u00A0', cls: 'syn-space' },
-    // }
-    { ch: '}', cls: 'syn-bracket' }
+    // ;
+    { ch: ';', cls: 'syn-operator' }
   ];
 
   // Color map for particles
